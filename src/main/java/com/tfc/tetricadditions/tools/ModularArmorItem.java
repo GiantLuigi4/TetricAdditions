@@ -3,18 +3,13 @@ package com.tfc.tetricadditions.tools;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.tfc.tetricadditions.tools.renderer.HelmetRenderer;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.RenderTypeBuffers;
-import net.minecraft.client.renderer.entity.model.BipedModel;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -101,7 +96,7 @@ public class ModularArmorItem extends ModularItem {
 					SharedMonsterAttributes.ARMOR.getName(),
 					new AttributeModifier(
 							ARMOR_MODIFIERS[0],
-					"tetric_additions.armor_mod",
+							"tetric_additions.armor_mod",
 							armor_modifier,
 							AttributeModifier.Operation.ADDITION
 					)
@@ -111,7 +106,7 @@ public class ModularArmorItem extends ModularItem {
 					SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(),
 					new AttributeModifier(
 							ARMOR_MODIFIERS2[0],
-					"tetric_additions.armor_mod",
+							"tetric_additions.armor_mod",
 							armorToughnessModifier,
 							AttributeModifier.Operation.ADDITION
 					)
@@ -122,22 +117,10 @@ public class ModularArmorItem extends ModularItem {
 	}
 	
 	public double getSpeedModifier(ItemStack itemStack) {
-		double speedModifier = (Double)this.getAllModules(itemStack).stream().map((itemModule) -> {
-			return itemModule.getSpeedModifier(itemStack);
-		}).reduce(0d, Double::sum);
-		speedModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> {
-			return (double)synergyData.attackSpeed;
-		}).reduce(speedModifier, Double::sum);
-		speedModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> {
-			return (double)synergyData.attackSpeedMultiplier;
-		}).reduce(speedModifier, (a, b) -> {
-			return a * b;
-		});
-		speedModifier = (Double)this.getAllModules(itemStack).stream().map((itemModule) -> {
-			return itemModule.getSpeedMultiplierModifier(itemStack);
-		}).reduce(speedModifier, (a, b) -> {
-			return a * b;
-		});
+		double speedModifier = this.getAllModules(itemStack).stream().map((itemModule) -> itemModule.getSpeedModifier(itemStack)).reduce(0d, Double::sum);
+		speedModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> (double) synergyData.attackSpeed).reduce(speedModifier, Double::sum);
+		speedModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> (double) synergyData.attackSpeedMultiplier).reduce(speedModifier, (a, b) -> a * b);
+		speedModifier = this.getAllModules(itemStack).stream().map((itemModule) -> itemModule.getSpeedMultiplierModifier(itemStack)).reduce(speedModifier, (a, b) -> a * b);
 //		speedModifier *= this.getCounterWeightMultiplier(itemStack);
 //		if (speedModifier < -4.0D) {
 //			speedModifier = -3.9D;
@@ -150,22 +133,10 @@ public class ModularArmorItem extends ModularItem {
 		if (this.isBroken(itemStack)) {
 			return 0.0D;
 		} else {
-			double damageModifier = this.getAllModules(itemStack).stream().mapToDouble((itemModule) -> {
-				return itemModule.getDamageModifier(itemStack);
-			}).sum();
-			damageModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> {
-				return (double)synergyData.damage;
-			}).reduce(damageModifier, Double::sum);
-			damageModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> {
-				return (double)synergyData.damageMultiplier;
-			}).reduce(damageModifier, (a, b) -> {
-				return a * b;
-			});
-			return (Double)this.getAllModules(itemStack).stream().map((itemModule) -> {
-				return itemModule.getDamageMultiplierModifier(itemStack);
-			}).reduce(damageModifier, (a, b) -> {
-				return a * b;
-			});
+			double damageModifier = this.getAllModules(itemStack).stream().mapToDouble((itemModule) -> itemModule.getDamageModifier(itemStack)).sum();
+			damageModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> (double) synergyData.damage).reduce(damageModifier, Double::sum);
+			damageModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> synergyData.damageMultiplier).reduce(damageModifier, (a, b) -> a * b);
+			return this.getAllModules(itemStack).stream().map((itemModule) -> itemModule.getDamageMultiplierModifier(itemStack)).reduce(damageModifier, (a, b) -> a * b);
 		}
 	}
 }

@@ -1,20 +1,14 @@
 package com.tfc.tetricadditions.tools;
 
-import com.google.common.collect.Multimap;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.tfc.tetricadditions.tools.renderer.HelmetRenderer;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.model.ArmorStandModel;
 import net.minecraft.client.renderer.entity.model.BipedModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.PlayerModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.ArmorStandEntity;
 import net.minecraft.entity.monster.SkeletonEntity;
 import net.minecraft.entity.monster.ZombieEntity;
@@ -28,7 +22,6 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
-import se.mickelus.tetra.items.modular.impl.ModularBladedItem;
 import se.mickelus.tetra.module.ItemModule;
 import se.mickelus.tetra.module.SchemaRegistry;
 import se.mickelus.tetra.module.data.ModuleModel;
@@ -175,7 +168,7 @@ public class ItemModularHelmet extends ModularArmorItem {
 					else if (entity instanceof ZombieEntity)
 						model = HelmetRenderer.zombieModel;
 					matrixStack.push();
-					matrixStack.scale(0.91f,0.91f,0.91f);
+					matrixStack.scale(0.91f, 0.91f, 0.91f);
 					model.bipedHeadwear.render(
 							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
 							f, f1, f2, 1
@@ -228,7 +221,7 @@ public class ItemModularHelmet extends ModularArmorItem {
 					else if (entity instanceof ZombieEntity)
 						model = HelmetRenderer.zombieModel;
 					matrixStack.push();
-					matrixStack.scale(0.95f,0.95f,0.95f);
+					matrixStack.scale(0.95f, 0.95f, 0.95f);
 					model.bipedHeadwear.render(
 							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
 							f, f1, f2, 1
@@ -251,7 +244,7 @@ public class ItemModularHelmet extends ModularArmorItem {
 			} else {
 				String name = module.getName(itemStack).substring("armor/helmet/base/armor/helmet/b".length());
 				if (name.equals("gold")) {
-					name+="en";
+					name += "en";
 				}
 				name = name.toUpperCase().substring(0, 1) + name.substring(1);
 				if (name.equals("Leather")) {

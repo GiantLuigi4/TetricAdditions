@@ -1,46 +1,20 @@
 package com.tfc.tetricadditions;
 
-import com.tfc.tetricadditions.modules.BasicArmorModule;
 import com.tfc.tetricadditions.tools.ItemModularHelmet;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.AtlasTexture;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.*;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import se.mickelus.tetra.TetraMod;
 import se.mickelus.tetra.blocks.forged.container.ForgedContainerTESR;
-import se.mickelus.tetra.capabilities.Capability;
 import se.mickelus.tetra.items.TetraItemGroup;
-import se.mickelus.tetra.items.modular.BasicMajorModule;
-import se.mickelus.tetra.items.modular.BasicModule;
-import se.mickelus.tetra.module.ItemUpgradeRegistry;
-import se.mickelus.tetra.module.ModuleRegistry;
-import se.mickelus.tetra.module.Priority;
-import se.mickelus.tetra.module.SchemaRegistry;
-import se.mickelus.tetra.module.data.CapabilityData;
-import se.mickelus.tetra.module.data.GlyphData;
-import se.mickelus.tetra.module.schema.*;
-
-import javax.annotation.Nullable;
-import java.util.Collection;
-import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("tetric_additions")

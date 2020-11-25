@@ -1,7 +1,5 @@
 package com.tfc.tetricadditions.data;
 
-import org.omg.CORBA.Object;
-
 import java.util.Arrays;
 
 public class ArrayHelper {
