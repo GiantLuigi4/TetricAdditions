@@ -73,7 +73,7 @@ public class MaterialTier {
 				("    {\n" +
 				"      \"material\": {\n" +
 				"        \"item\": \""+name+"\",\n" +
-				"        \"count\": "+(((int)(Math.floor(5*scalar)))+"").replace(".0","")+"\n" +
+				"        \"count\": "+((Math.max(1,((int)(Math.floor(5*scalar))))+"").replace(".0",""))+"\n" +
 				"      },\n" +
 				"      \"requiredCapabilities\": {\n" +
 				"        \""+tool+"\": "+toolTier+"\n" +

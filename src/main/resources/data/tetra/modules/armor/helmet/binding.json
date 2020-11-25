@@ -2,81 +2,87 @@
   "replace": false,
   "slots": ["armor/helmet/binding"],
   "type": "tetra:basic_module",
-  "renderLayer": "low",
-  "tweakKey": "tetra:armor_helmet/binding",
+  "renderLayer": "highest",
+  "tweakKey": "tetra:armor/helmet/binding",
   "variants": [
     {
-      "key": "armor/binding/string",
-      "durability": 12,
-      "integrity": 1,
-      "attackSpeed": -0.1,
-      "glyph": {
-        "tint": "string_glyph",
-        "textureX": 88,
-        "textureY": 16
-      },
-      "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding/default",
-        "tint": "string"
-      }]
-    },
-    {
-      "key": "armor/binding/leather",
-      "durability": 23,
-      "integrity": 2,
-      "attackSpeed": -0.4,
+      "key": "armor/helmet/binding/leather",
+      "durability": 9.9,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
       "glyph": {
         "tint": "leather_glyph",
         "textureX": 88,
         "textureY": 16
       },
       "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding/default",
+        "location": "tetric_additions:items/module/armor/helmet/binding",
         "tint": "leather"
       }]
     },
     {
-      "key": "armor/binding/hide",
-      "durability": 18,
-      "integrity": 2,
-      "attackSpeed": -0.3,
+      "key": "armor/helmet/binding/hide",
+      "durability": 7.425,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
       "glyph": {
         "tint": "hide_glyph",
         "textureX": 88,
         "textureY": 16
       },
       "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding/default",
+        "location": "tetric_additions:items/module/armor/helmet/binding",
         "tint": "hide"
       }]
     },
     {
-      "key": "armor/binding/vine",
-      "durability": 12,
-      "integrity": 1,
-      "attackSpeed": -0.2,
+      "key": "armor/helmet/binding/string",
+      "durability": 1.2375,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "string_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "string"
+      }]
+    },
+    {
+      "key": "armor/helmet/binding/vine",
+      "durability": 4.33125,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
       "glyph": {
         "tint": "vine_glyph",
         "textureX": 88,
         "textureY": 16
       },
       "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding/default",
+        "location": "tetric_additions:items/module/armor/helmet/binding",
         "tint": "vine"
       }]
     },
     {
-      "key": "armor/binding/bolt",
-      "durability": 12,
-      "attackSpeed": -0.1,
+      "key": "armor/helmet/binding/bolt",
+      "durability": 77.09625,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.36,
       "glyph": {
         "tint": "bolt_glyph",
-        "textureX": 80,
+        "textureX": 88,
         "textureY": 16
       },
       "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding/bolt",
-        "tint": "bolt"
+        "location": "tetric_additions:items/module/armor/helmet/special/bolt_binding",
+        "tint": "string"
       }]
     }
   ]

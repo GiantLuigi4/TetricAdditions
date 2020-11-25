@@ -42,16 +42,16 @@ public class Datagen {
 					"minecraft:cactus",
 					"minecraft:prismarine_shard",
 			},
-//			{
-//				"armor/helmet/binding",
-//					"0.18", "0.1", "true", "false",
-//					"88","16",
-//					"minecraft:leather",
-//					"minecraft:rabbit_hide",
-//					"minecraft:string",
-//					"minecraft:vine",
-//					"tetra:forged_bolt",
-//			},
+			{
+				"armor/helmet/binding",
+					"0.18", "0.1", "true", "false",
+					"88","16",
+					"minecraft:leather",
+					"minecraft:rabbit_hide",
+					"minecraft:string",
+					"minecraft:vine",
+					"tetra:forged_bolt",
+			},
 	};
 	
 	private static final MaterialTier[] tiers = new MaterialTier[] {

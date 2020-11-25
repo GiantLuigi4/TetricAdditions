@@ -4,7 +4,7 @@
     "armor/helmet/binding"
   ],
   "materialSlotCount": 1,
-  "displayType": "minor",
+  "displayType": "major",
   "glyph": {
     "textureX": 88,
     "textureY": 16
@@ -12,53 +12,58 @@
   "outcomes": [
     {
       "material": {
-        "item": "minecraft:string",
-        "count": 4
-      },
-      "requiredCapabilities": {
-        "cut": 1
-      },
-      "moduleKey": "armor/helmet/binding",
-      "moduleVariant": "armor/binding/string"
-    },
-    {
-      "material": {
-        "item": "minecraft:leather"
+        "item": "minecraft:leather",
+        "count": 1
       },
       "requiredCapabilities": {
         "cut": 2
       },
       "moduleKey": "armor/helmet/binding",
-      "moduleVariant": "armor/binding/leather"
+      "moduleVariant": "armor/helmet/binding/leather"
     },
     {
       "material": {
         "item": "minecraft:rabbit_hide",
-        "count": 2
+        "count": 1
       },
       "requiredCapabilities": {
         "cut": 2
       },
       "moduleKey": "armor/helmet/binding",
-      "moduleVariant": "armor/binding/hide"
+      "moduleVariant": "armor/helmet/binding/hide"
+    },
+    {
+      "material": {
+        "item": "minecraft:string",
+        "count": 1
+      },
+      "requiredCapabilities": {
+        "cutting": 1
+      },
+      "moduleKey": "armor/helmet/binding",
+      "moduleVariant": "armor/helmet/binding/string"
     },
     {
       "material": {
         "item": "minecraft:vine",
-        "count": 4
+        "count": 1
       },
       "requiredCapabilities": {
-        "cut": 1
+        "cutting": 2
       },
       "moduleKey": "armor/helmet/binding",
-      "moduleVariant": "armor/binding/vine"
+      "moduleVariant": "armor/helmet/binding/vine"
     },
     {
       "material": {
-        "item": "tetra:forged_bolt"
+        "item": "tetra:forged_bolt",
+        "count": 1
+      },
+      "requiredCapabilities": {
+        "hammer": 4
       },
       "moduleKey": "armor/helmet/binding",
-      "moduleVariant": "armor/binding/bolt"
+      "moduleVariant": "armor/helmet/binding/bolt"
     }
   ]
 }
