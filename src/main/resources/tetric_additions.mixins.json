@@ -1,0 +1,15 @@
+{
+  "required": false,
+  "package": "com.tfc.tetricadditions.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "tetric_additions.refmap.json",
+  "client": [
+    "ArmorLayerMixin"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

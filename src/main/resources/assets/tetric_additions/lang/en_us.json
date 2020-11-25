@@ -1,0 +1,16 @@
+{
+  "#tetric_additions_slots": "",
+  "tetra.slot.armor/helmet/binding": "Binding",
+  "tetra.slot.armor/helmet/socket": "Socket",
+  "tetra.slot.armor/helmet/base": "Base",
+  "tetra.slot.armor/helmet/plate2": "Secondary Plating",
+  "tetra.slot.armor/helmet/plate2/diamond": "Diamond Secondary Plating",
+  "tetra.slot.armor/helmet/plate2/iron": "Iron Secondary Plating",
+  "tetra.slot.armor/helmet/plate2/cactus": "Cactus Secondary Plating",
+  "tetra.slot.armor/helmet/plate2/gold": "Golden Secondary Plating",
+  "tetra.slot.armor/helmet/plate2/leather": "Leather Secondary Plating",
+  "tetra.slot.armor/helmet/plate1": "Primary Plating",
+
+  "#tetric_additions_schemas": "",
+  "tetra/schema/armor/helmet/binding.slot1": "Material"
+}

@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "slots": ["armor/helmet/plate1"],
+  "type": "tetra:basic_module",
+  "renderLayer": "base",
+  "tweakKey": "tetra:armor/helmet/plate1",
+  "variants": [
+    {
+      "key": "armor/helmet/plate1/diamond",
+      "durability": 12,
+      "integrity": -1,
+      "damage": 2,
+      "attackSpeed": 2,
+      "glyph": {
+        "tint": "diamond_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/primary_plating",
+        "tint": "diamond"
+      }]
+    },
+    {
+      "key": "armor/helmet/plate1/leather",
+      "durability": 23,
+      "integrity": -1,
+      "damage": 1,
+      "attackSpeed": 0,
+      "glyph": {
+        "tint": "leather_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/primary_plating",
+        "tint": "leather"
+      }]
+    },
+    {
+      "key": "armor/helmet/plate1/hide",
+      "durability": 18,
+      "integrity": -1,
+      "damage": 1,
+      "attackSpeed": 0,
+      "glyph": {
+        "tint": "hide_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/primary_plating",
+        "tint": "hide"
+      }]
+    },
+    {
+      "key": "armor/helmet/plate1/cactus",
+      "durability": 12,
+      "integrity": -1,
+      "damage": 1,
+      "attackSpeed": 0,
+      "glyph": {
+        "tint": "vine_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/special/cactus_primary_plating",
+        "tint": "string"
+      }]
+    },
+    {
+      "key": "armor/helmet/plate1/prismarine",
+      "durability": 16,
+      "integrity": -1,
+      "damage": 2,
+      "attackSpeed": 1,
+      "glyph": {
+        "tint": "prismarine_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/special/prismarine_primary_plating",
+        "tint": "string"
+      }]
+    }
+  ]
+}
