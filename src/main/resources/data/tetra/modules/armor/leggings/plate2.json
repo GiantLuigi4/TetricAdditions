@@ -1,0 +1,121 @@
+{
+  "replace": false,
+  "slots": ["armor/leggings/plate2"],
+  "type": "tetra:basic_module",
+  "renderLayer": "highest",
+  "tweakKey": "tetra:armor/leggings/plate2",
+  "variants": [
+    {
+      "key": "armor/leggings/plate2/diamond",
+      "durability": 92.4,
+      "integrity": -0.4,
+      "damage": 2.0,
+      "attackSpeed": 0.4,
+      "glyph": {
+        "tint": "diamond_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/plate2",
+        "tint": "diamond"
+      }]
+    },
+    {
+      "key": "armor/leggings/plate2/iron",
+      "durability": 42.0,
+      "integrity": -0.2,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "iron_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/plate2",
+        "tint": "iron"
+      }]
+    },
+    {
+      "key": "armor/leggings/plate2/gold",
+      "durability": 19.6,
+      "integrity": -0.2,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "gold_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/plate2",
+        "tint": "gold"
+      }]
+    },
+    {
+      "key": "armor/leggings/plate2/leather",
+      "durability": 14.0,
+      "integrity": -0.2,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "leather_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/plate2",
+        "tint": "leather"
+      }]
+    },
+    {
+      "key": "armor/leggings/plate2/hide",
+      "durability": 10.5,
+      "integrity": -0.2,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "hide_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/plate2",
+        "tint": "hide"
+      }]
+    },
+    {
+      "key": "armor/leggings/plate2/cactus",
+      "durability": 7.0,
+      "integrity": -0.2,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "vine_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/special/cactus_plate2",
+        "tint": "string"
+      }]
+    },
+    {
+      "key": "armor/leggings/plate2/prismarine",
+      "durability": 63.0,
+      "integrity": -0.2,
+      "damage": 2.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "prismarine_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/special/prismarine_plate2",
+        "tint": "string"
+      }]
+    }
+  ]
+}

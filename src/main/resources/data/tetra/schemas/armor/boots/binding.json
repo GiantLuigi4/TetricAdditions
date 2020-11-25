@@ -1,0 +1,69 @@
+{
+  "replace": false,
+  "slots": [
+    "armor/boots/binding"
+  ],
+  "materialSlotCount": 1,
+  "displayType": "major",
+  "glyph": {
+    "textureX": 88,
+    "textureY": 16
+  },
+  "outcomes": [
+    {
+      "material": {
+        "item": "minecraft:leather",
+        "count": 1
+      },
+      "requiredCapabilities": {
+        "cut": 2
+      },
+      "moduleKey": "armor/boots/binding",
+      "moduleVariant": "armor/boots/binding/leather"
+    },
+    {
+      "material": {
+        "item": "minecraft:rabbit_hide",
+        "count": 1
+      },
+      "requiredCapabilities": {
+        "cut": 2
+      },
+      "moduleKey": "armor/boots/binding",
+      "moduleVariant": "armor/boots/binding/hide"
+    },
+    {
+      "material": {
+        "item": "minecraft:string",
+        "count": 1
+      },
+      "requiredCapabilities": {
+        "cutting": 1
+      },
+      "moduleKey": "armor/boots/binding",
+      "moduleVariant": "armor/boots/binding/string"
+    },
+    {
+      "material": {
+        "item": "minecraft:vine",
+        "count": 1
+      },
+      "requiredCapabilities": {
+        "cutting": 2
+      },
+      "moduleKey": "armor/boots/binding",
+      "moduleVariant": "armor/boots/binding/vine"
+    },
+    {
+      "material": {
+        "item": "tetra:forged_bolt",
+        "count": 1
+      },
+      "requiredCapabilities": {
+        "hammer": 4
+      },
+      "moduleKey": "armor/boots/binding",
+      "moduleVariant": "armor/boots/binding/bolt"
+    }
+  ]
+}

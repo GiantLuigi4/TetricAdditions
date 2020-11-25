@@ -4,55 +4,62 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 public class Datagen {
-	private static final String[][] types = new String[][] {
-			//Helmet stuff
-			{
-				"armor/helmet/base",
-					"1", "0", "false", "false",
-					"99","35",
-					"minecraft:diamond",
-					"minecraft:iron_ingot",
-					"minecraft:gold_ingot",
-					"minecraft:leather",
-					"minecraft:rabbit_hide",
-					"minecraft:cactus",
-					"minecraft:prismarine_shard",
-			},
-			{
-				"armor/helmet/plate1",
-					"0.5", "0.5", "true", "true",
-					"99","35",
-					"minecraft:diamond",
-					"minecraft:iron_ingot",
-					"minecraft:gold_ingot",
-					"minecraft:leather",
-					"minecraft:rabbit_hide",
-					"minecraft:cactus",
-					"minecraft:prismarine_shard",
-			},
-			{
-				"armor/helmet/plate2",
-					"0.2", "0.2", "true", "false",
-					"99","35",
-					"minecraft:diamond",
-					"minecraft:iron_ingot",
-					"minecraft:gold_ingot",
-					"minecraft:leather",
-					"minecraft:rabbit_hide",
-					"minecraft:cactus",
-					"minecraft:prismarine_shard",
-			},
-			{
-				"armor/helmet/binding",
-					"0.18", "0.1", "true", "false",
-					"88","16",
-					"minecraft:leather",
-					"minecraft:rabbit_hide",
-					"minecraft:string",
-					"minecraft:vine",
-					"tetra:forged_bolt",
-			},
-	};
+//	private static final String[][] types = new String[][] {
+//			//Helmet stuff
+//			{
+//				"armor/chestplate/base",
+//					"1", "0", "false", "false",
+//					"99","35","1",
+//					"minecraft:diamond",
+//					"minecraft:iron_ingot",
+//					"minecraft:gold_ingot",
+//					"minecraft:leather",
+//					"minecraft:rabbit_hide",
+//					"minecraft:cactus",
+//					"minecraft:prismarine_shard",
+//			},
+//			{
+//				"armor/chestplate/plate1",
+//					"0.5", "0.5", "true", "true",
+//					"99","35","1",
+//					"minecraft:diamond",
+//					"minecraft:iron_ingot",
+//					"minecraft:gold_ingot",
+//					"minecraft:leather",
+//					"minecraft:rabbit_hide",
+//					"minecraft:cactus",
+//					"minecraft:prismarine_shard",
+//			},
+//			{
+//				"armor/chestplate/plate2",
+//					"0.2", "0.2", "true", "false",
+//					"99","35","1",
+//					"minecraft:diamond",
+//					"minecraft:iron_ingot",
+//					"minecraft:gold_ingot",
+//					"minecraft:leather",
+//					"minecraft:rabbit_hide",
+//					"minecraft:cactus",
+//					"minecraft:prismarine_shard",
+//			},
+//			{
+//				"armor/chestplate/binding",
+//					"0.18", "0.1", "true", "false",
+//					"88","16","1",
+//					"minecraft:leather",
+//					"minecraft:rabbit_hide",
+//					"minecraft:string",
+//					"minecraft:vine",
+//					"tetra:forged_bolt",
+//			},
+//	};
+	
+	private static final String[][] types = ArrayHelper.massMerge(
+			genList("helmet",0),
+			genList("chestplate",1),
+			genList("leggings",2),
+			genList("boots",3)
+	);
 	
 	private static final MaterialTier[] tiers = new MaterialTier[] {
 			new MaterialTier("minecraft:diamond",8,10,528,true,"diamond","%type%","diamond","hammer",3),
@@ -70,7 +77,9 @@ public class Datagen {
 	public static void main(String[] args) {
 		for (String[] type : types) {
 			String typeStr = type[0];
-			int startIndex = 7;
+			int startIndex = 8;
+			
+			int armorPart = Integer.parseInt(type[7]);
 			
 			//Datagen Modules
 			String module = "{\n" +
@@ -82,12 +91,13 @@ public class Datagen {
 					"  \"variants\": [";
 				for (int material=startIndex;material<type.length;material++) {
 					module+="\n"+getTier(type[material])
-							.toStringHelmetModule(
+							.toStringModule(
 									Double.parseDouble(type[1]),
 									Double.parseDouble(type[2]),
 									Boolean.parseBoolean(type[3]),
 									Boolean.parseBoolean(type[4]),
-									typeStr
+									typeStr,
+									armorPart
 							);
 				if (material != type.length-1)
 					module+=",";
@@ -109,7 +119,7 @@ public class Datagen {
 					"  },\n" +
 					"  \"outcomes\": [";
 			for (int material=startIndex;material<type.length;material++) {
-				schema+="\n"+getTier(type[material]).toStringHelmetSchema(Double.parseDouble(type[1]),Double.parseDouble(type[2]),Boolean.parseBoolean(type[3]),typeStr);
+				schema+="\n"+getTier(type[material]).toStringSchema(Double.parseDouble(type[1]),Double.parseDouble(type[2]),Boolean.parseBoolean(type[3]),typeStr,armorPart);
 				if (material != type.length-1)
 					schema+=",";
 			}
@@ -140,5 +150,56 @@ public class Datagen {
 			stream.close();
 		} catch (Throwable ignored) {
 		}
+	}
+	
+	private static String[][] genList(String name, int part) {
+		return new String[][]{
+				{
+						"armor/"+name+"/base",
+						"1", "0", "false", "false",
+						"99","35",""+part+"",
+						"minecraft:diamond",
+						"minecraft:iron_ingot",
+						"minecraft:gold_ingot",
+						"minecraft:leather",
+						"minecraft:rabbit_hide",
+						"minecraft:cactus",
+						"minecraft:prismarine_shard",
+				},
+				{
+						"armor/"+name+"/plate1",
+						"0.5", "0.5", "true", "true",
+						"99","35",""+part+"",
+						"minecraft:diamond",
+						"minecraft:iron_ingot",
+						"minecraft:gold_ingot",
+						"minecraft:leather",
+						"minecraft:rabbit_hide",
+						"minecraft:cactus",
+						"minecraft:prismarine_shard",
+				},
+				{
+						"armor/"+name+"/plate2",
+						"0.2", "0.2", "true", "false",
+						"99","35",""+part+"",
+						"minecraft:diamond",
+						"minecraft:iron_ingot",
+						"minecraft:gold_ingot",
+						"minecraft:leather",
+						"minecraft:rabbit_hide",
+						"minecraft:cactus",
+						"minecraft:prismarine_shard",
+				},
+				{
+						"armor/"+name+"/binding",
+						"0.18", "0.1", "true", "false",
+						"88","16",""+part+"",
+						"minecraft:leather",
+						"minecraft:rabbit_hide",
+						"minecraft:string",
+						"minecraft:vine",
+						"tetra:forged_bolt",
+				},
+		};
 	}
 }

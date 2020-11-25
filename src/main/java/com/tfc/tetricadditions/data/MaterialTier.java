@@ -4,6 +4,9 @@ public class MaterialTier {
 	private final double[] multipliers = new double[] {
 			0.375,1,0.75,0.375
 	};
+	private final double[] costs = new double[] {
+			5,8,7,4
+	};
 	
 	public final String name;
 	public final int chestplateValue;
@@ -48,14 +51,14 @@ public class MaterialTier {
 		this.alternateTint = alternateTint;
 	}
 	
-	public String toStringHelmetModule(double scalar, double integrityLose, boolean loseIntegrity, boolean useToughness, String type) {
+	public String toStringModule(double scalar, double integrityLose, boolean loseIntegrity, boolean useToughness, String type, int part) {
 		return
 				("    {\n" +
 				"      \"key\": \""+type+"/"+key+"\",\n" +
-				"      \"durability\": "+(chestplateDurability*((multipliers[0]+1)/2)*scalar)+",\n" +
-				"      \"integrity\": "+(Math.ceil(chestplateIntegrity *multipliers[0]*scalar)*(loseIntegrity?-integrityLose:1))+",\n" +
-				"      \"damage\": "+(useToughness?(baseProvidesToughness?(2*scalar*multipliers[0]):0):(Math.ceil(chestplateValue*multipliers[0]*scalar)))+",\n" +
-				"      \"attackSpeed\": "+(!useToughness?(baseProvidesToughness?(2*scalar):0):(Math.ceil(chestplateValue*multipliers[0]*scalar*multipliers[0])))+",\n" +
+				"      \"durability\": "+(chestplateDurability*((multipliers[part]+1)/2)*scalar)+",\n" +
+				"      \"integrity\": "+(Math.ceil(chestplateIntegrity *multipliers[part]*scalar)*(loseIntegrity?-integrityLose:1))+",\n" +
+				"      \"damage\": "+(useToughness?(baseProvidesToughness?(2*scalar*multipliers[part]):0):(Math.ceil(chestplateValue*multipliers[part]*scalar)))+",\n" +
+				"      \"attackSpeed\": "+(!useToughness?(baseProvidesToughness?(2*scalar):0):(Math.ceil(chestplateValue*multipliers[part]*scalar*multipliers[part])))+",\n" +
 				"      \"glyph\": {\n" +
 				"        \"tint\": \""+tint+"_glyph\",\n" +
 				"        \"textureX\": 88,\n" +
@@ -68,12 +71,12 @@ public class MaterialTier {
 				"    }").replace("%type%",type.substring(type.lastIndexOf("/")+1));
 	}
 	
-	public String toStringHelmetSchema(double scalar, double integrityLose, boolean loseIntegrity, String type) {
+	public String toStringSchema(double scalar, double integrityLose, boolean loseIntegrity, String type, int part) {
 		return
 				("    {\n" +
 				"      \"material\": {\n" +
 				"        \"item\": \""+name+"\",\n" +
-				"        \"count\": "+((Math.max(1,((int)(Math.floor(5*scalar))))+"").replace(".0",""))+"\n" +
+				"        \"count\": "+((Math.max(1,((int)(Math.floor(costs[part]*scalar))))+"").replace(".0",""))+"\n" +
 				"      },\n" +
 				"      \"requiredCapabilities\": {\n" +
 				"        \""+tool+"\": "+toolTier+"\n" +

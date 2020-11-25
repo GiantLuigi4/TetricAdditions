@@ -1,0 +1,91 @@
+{
+  "replace": false,
+  "slots": [
+    "armor/chestplate/plate1"
+  ],
+  "materialSlotCount": 1,
+  "displayType": "major",
+  "glyph": {
+    "textureX": 99,
+    "textureY": 35
+  },
+  "outcomes": [
+    {
+      "material": {
+        "item": "minecraft:diamond",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "hammer": 3
+      },
+      "moduleKey": "armor/chestplate/plate1",
+      "moduleVariant": "armor/chestplate/plate1/diamond"
+    },
+    {
+      "material": {
+        "item": "minecraft:iron_ingot",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "hammer": 2
+      },
+      "moduleKey": "armor/chestplate/plate1",
+      "moduleVariant": "armor/chestplate/plate1/iron"
+    },
+    {
+      "material": {
+        "item": "minecraft:gold_ingot",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "hammer": 1
+      },
+      "moduleKey": "armor/chestplate/plate1",
+      "moduleVariant": "armor/chestplate/plate1/gold"
+    },
+    {
+      "material": {
+        "item": "minecraft:leather",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "cut": 2
+      },
+      "moduleKey": "armor/chestplate/plate1",
+      "moduleVariant": "armor/chestplate/plate1/leather"
+    },
+    {
+      "material": {
+        "item": "minecraft:rabbit_hide",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "cut": 2
+      },
+      "moduleKey": "armor/chestplate/plate1",
+      "moduleVariant": "armor/chestplate/plate1/hide"
+    },
+    {
+      "material": {
+        "item": "minecraft:cactus",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "cut": 3
+      },
+      "moduleKey": "armor/chestplate/plate1",
+      "moduleVariant": "armor/chestplate/plate1/cactus"
+    },
+    {
+      "material": {
+        "item": "minecraft:prismarine_shard",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "hammer": 2
+      },
+      "moduleKey": "armor/chestplate/plate1",
+      "moduleVariant": "armor/chestplate/plate1/prismarine"
+    }
+  ]
+}

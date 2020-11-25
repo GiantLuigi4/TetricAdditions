@@ -1,0 +1,121 @@
+{
+  "replace": false,
+  "slots": ["armor/chestplate/base"],
+  "type": "tetra:basic_module",
+  "renderLayer": "highest",
+  "tweakKey": "tetra:armor/chestplate/base",
+  "variants": [
+    {
+      "key": "armor/chestplate/base/diamond",
+      "durability": 528.0,
+      "integrity": 10.0,
+      "damage": 8.0,
+      "attackSpeed": 2.0,
+      "glyph": {
+        "tint": "diamond_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/base",
+        "tint": "diamond"
+      }]
+    },
+    {
+      "key": "armor/chestplate/base/iron",
+      "durability": 240.0,
+      "integrity": 5.0,
+      "damage": 6.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "iron_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/base",
+        "tint": "iron"
+      }]
+    },
+    {
+      "key": "armor/chestplate/base/gold",
+      "durability": 112.0,
+      "integrity": 3.0,
+      "damage": 5.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "gold_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/base",
+        "tint": "gold"
+      }]
+    },
+    {
+      "key": "armor/chestplate/base/leather",
+      "durability": 80.0,
+      "integrity": 4.0,
+      "damage": 3.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "leather_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/base",
+        "tint": "leather"
+      }]
+    },
+    {
+      "key": "armor/chestplate/base/hide",
+      "durability": 60.0,
+      "integrity": 3.0,
+      "damage": 4.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "hide_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/base",
+        "tint": "hide"
+      }]
+    },
+    {
+      "key": "armor/chestplate/base/cactus",
+      "durability": 40.0,
+      "integrity": 2.0,
+      "damage": 2.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "vine_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/special/cactus_base",
+        "tint": "string"
+      }]
+    },
+    {
+      "key": "armor/chestplate/base/prismarine",
+      "durability": 360.0,
+      "integrity": 5.0,
+      "damage": 7.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "prismarine_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/special/prismarine_base",
+        "tint": "string"
+      }]
+    }
+  ]
+}

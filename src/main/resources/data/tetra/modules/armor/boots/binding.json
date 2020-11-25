@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "slots": ["armor/boots/binding"],
+  "type": "tetra:basic_module",
+  "renderLayer": "highest",
+  "tweakKey": "tetra:armor/boots/binding",
+  "variants": [
+    {
+      "key": "armor/boots/binding/leather",
+      "durability": 9.9,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "leather_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "leather"
+      }]
+    },
+    {
+      "key": "armor/boots/binding/hide",
+      "durability": 7.425,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "hide_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "hide"
+      }]
+    },
+    {
+      "key": "armor/boots/binding/string",
+      "durability": 1.2375,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "string_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "string"
+      }]
+    },
+    {
+      "key": "armor/boots/binding/vine",
+      "durability": 4.33125,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "vine_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "vine"
+      }]
+    },
+    {
+      "key": "armor/boots/binding/bolt",
+      "durability": 77.09625,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.36,
+      "glyph": {
+        "tint": "bolt_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/special/bolt_binding",
+        "tint": "string"
+      }]
+    }
+  ]
+}

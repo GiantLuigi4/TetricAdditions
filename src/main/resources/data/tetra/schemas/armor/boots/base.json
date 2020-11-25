@@ -1,0 +1,91 @@
+{
+  "replace": false,
+  "slots": [
+    "armor/boots/base"
+  ],
+  "materialSlotCount": 1,
+  "displayType": "major",
+  "glyph": {
+    "textureX": 99,
+    "textureY": 35
+  },
+  "outcomes": [
+    {
+      "material": {
+        "item": "minecraft:diamond",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "hammer": 3
+      },
+      "moduleKey": "armor/boots/base",
+      "moduleVariant": "armor/boots/base/diamond"
+    },
+    {
+      "material": {
+        "item": "minecraft:iron_ingot",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "hammer": 2
+      },
+      "moduleKey": "armor/boots/base",
+      "moduleVariant": "armor/boots/base/iron"
+    },
+    {
+      "material": {
+        "item": "minecraft:gold_ingot",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "hammer": 1
+      },
+      "moduleKey": "armor/boots/base",
+      "moduleVariant": "armor/boots/base/gold"
+    },
+    {
+      "material": {
+        "item": "minecraft:leather",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "cut": 2
+      },
+      "moduleKey": "armor/boots/base",
+      "moduleVariant": "armor/boots/base/leather"
+    },
+    {
+      "material": {
+        "item": "minecraft:rabbit_hide",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "cut": 2
+      },
+      "moduleKey": "armor/boots/base",
+      "moduleVariant": "armor/boots/base/hide"
+    },
+    {
+      "material": {
+        "item": "minecraft:cactus",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "cut": 3
+      },
+      "moduleKey": "armor/boots/base",
+      "moduleVariant": "armor/boots/base/cactus"
+    },
+    {
+      "material": {
+        "item": "minecraft:prismarine_shard",
+        "count": 4
+      },
+      "requiredCapabilities": {
+        "hammer": 2
+      },
+      "moduleKey": "armor/boots/base",
+      "moduleVariant": "armor/boots/base/prismarine"
+    }
+  ]
+}

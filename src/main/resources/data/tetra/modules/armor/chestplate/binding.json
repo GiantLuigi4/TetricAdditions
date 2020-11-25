@@ -1,0 +1,89 @@
+{
+  "replace": false,
+  "slots": ["armor/chestplate/binding"],
+  "type": "tetra:basic_module",
+  "renderLayer": "highest",
+  "tweakKey": "tetra:armor/chestplate/binding",
+  "variants": [
+    {
+      "key": "armor/chestplate/binding/leather",
+      "durability": 14.399999999999999,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "leather_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "leather"
+      }]
+    },
+    {
+      "key": "armor/chestplate/binding/hide",
+      "durability": 10.799999999999999,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "hide_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "hide"
+      }]
+    },
+    {
+      "key": "armor/chestplate/binding/string",
+      "durability": 1.7999999999999998,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "string_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "string"
+      }]
+    },
+    {
+      "key": "armor/chestplate/binding/vine",
+      "durability": 6.3,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.0,
+      "glyph": {
+        "tint": "vine_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "tint": "vine"
+      }]
+    },
+    {
+      "key": "armor/chestplate/binding/bolt",
+      "durability": 112.14,
+      "integrity": -0.1,
+      "damage": 1.0,
+      "attackSpeed": 0.36,
+      "glyph": {
+        "tint": "bolt_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [{
+        "location": "tetric_additions:items/module/armor/helmet/special/bolt_binding",
+        "tint": "string"
+      }]
+    }
+  ]
+}
