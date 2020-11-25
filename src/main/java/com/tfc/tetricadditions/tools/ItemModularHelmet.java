@@ -138,7 +138,7 @@ public class ItemModularHelmet extends ModularArmorItem {
 				if (models[models.length - 1] != null) {
 					String key = models[0].location.toString();
 					IVertexBuilder builder;
-					if (key.equals("tetric_additions:items/module/armor/helmet/special/cactus_primary_plating")) {
+					if (key.equals("tetric_additions:items/module/armor/helmet/special/cactus_plate1")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -146,7 +146,7 @@ public class ItemModularHelmet extends ModularArmorItem {
 										)
 								)
 						);
-					} else if (key.equals("tetric_additions:items/module/armor/helmet/special/prismarine_primary_plating")) {
+					} else if (key.equals("tetric_additions:items/module/armor/helmet/special/prismarine_plate1")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -191,7 +191,7 @@ public class ItemModularHelmet extends ModularArmorItem {
 				if (models[models.length - 1] != null) {
 					String key = models[0].location.toString();
 					IVertexBuilder builder;
-					if (key.equals("tetric_additions:items/module/armor/helmet/special/cactus_secondary_plating")) {
+					if (key.equals("tetric_additions:items/module/armor/helmet/special/cactus_plate2")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -199,7 +199,7 @@ public class ItemModularHelmet extends ModularArmorItem {
 										)
 								)
 						);
-					} else if (key.equals("tetric_additions:items/module/armor/helmet/special/prismarine_secondary_plating")) {
+					} else if (key.equals("tetric_additions:items/module/armor/helmet/special/prismarine_plate2")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(

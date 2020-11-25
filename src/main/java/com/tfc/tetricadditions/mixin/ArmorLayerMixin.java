@@ -41,18 +41,6 @@ public abstract class ArmorLayerMixin<T extends LivingEntity, M extends BipedMod
 					a.setLivingAnimations(entityLivingBaseIn, limbSwing, limbSwingAmount, partialTicks);
 					this.setModelSlotVisible(a, slotIn);
 					a.setRotationAngles(entityLivingBaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-//					boolean flag = this.isLegSlot(slotIn);
-//					boolean flag1 = itemstack.hasEffect();
-////					if (armoritem instanceof net.minecraft.item.IDyeableArmorItem) { // Allow this for anything, not only cloth
-////						int i = ((net.minecraft.item.IDyeableArmorItem) armoritem).getColor(itemstack);
-////						float f = (float) (i >> 16 & 255) / 255.0F;
-////						float f1 = (float) (i >> 8 & 255) / 255.0F;
-////						float f2 = (float) (i & 255) / 255.0F;
-////						renderArmor(matrixStackIn, bufferIn, packedLightIn, flag1, a, f, f1, f2, null);
-////						renderArmor(matrixStackIn, bufferIn, packedLightIn, flag1, a, 1.0F, 1.0F, 1.0F, this.getArmorResource(entityLivingBaseIn, itemstack, slotIn, "overlay"));
-////					} else {
-////						renderArmor(matrixStackIn, bufferIn, packedLightIn, flag1, a, 1.0F, 1.0F, 1.0F, null);
-////					}
 					armoritem.render(bufferIn, itemstack, entityLivingBaseIn, matrixStackIn, packedLightIn);
 				}
 			}
@@ -71,7 +59,4 @@ public abstract class ArmorLayerMixin<T extends LivingEntity, M extends BipedMod
 	
 	@Shadow
 	protected abstract void setModelSlotVisible(A modelIn, EquipmentSlotType slotIn);
-	
-	@Shadow
-	protected abstract boolean isLegSlot(EquipmentSlotType slotIn);
 }

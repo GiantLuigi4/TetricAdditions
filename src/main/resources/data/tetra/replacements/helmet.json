@@ -1,0 +1,50 @@
+[
+    {
+        "predicate": {
+            "item": "minecraft:leather_helmet"
+        },
+        "item": "tetric_additions:modular_helmet",
+        "modules": {
+            "armor/helmet/base": [
+                "armor/helmet/base",
+                "armor/helmet/base/leather"
+            ]
+        }
+    },
+    {
+        "predicate": {
+            "item": "minecraft:iron_helmet"
+        },
+        "item": "tetric_additions:modular_helmet",
+        "modules": {
+            "armor/helmet/base": [
+                "armor/helmet/base",
+                "armor/helmet/base/iron"
+            ]
+        }
+    },
+    {
+        "predicate": {
+            "item": "minecraft:golden_helmet"
+        },
+        "item": "tetric_additions:modular_helmet",
+        "modules": {
+            "armor/helmet/base": [
+                "armor/helmet/base",
+                "armor/helmet/base/gold"
+            ]
+        }
+    },
+    {
+        "predicate": {
+            "item": "minecraft:diamond_helmet"
+        },
+        "item": "tetric_additions:modular_helmet",
+        "modules": {
+            "armor/helmet/base": [
+                "armor/helmet/base",
+                "armor/helmet/base/diamond"
+            ]
+        }
+    }
+]

@@ -14,7 +14,9 @@ public class MaterialTier {
 	public final String textureBase;
 	public final String tint;
 	public final String tool;
+	public final String alternateTint;
 	public final int toolTier;
+	public final boolean useTint;
 	
 	public MaterialTier(String name, int chestplateValue, int chestplateIntegrity, int chestplateDurability, boolean baseProvidesToughness, String key, String textureBase, String tint,String tool, int toolTier) {
 		this.name = name;
@@ -27,16 +29,33 @@ public class MaterialTier {
 		this.tint = tint;
 		this.tool = tool;
 		this.toolTier = toolTier;
+		this.useTint = true;
+		this.alternateTint = null;
 	}
 	
-	public String toStringHelmetModule(float scalar, int integrityLose, boolean loseIntegrity, String type) {
+	public MaterialTier(String name, int chestplateValue, int chestplateIntegrity, int chestplateDurability, boolean baseProvidesToughness, String key, String textureBase, String tint, String tool, int toolTier, boolean useTint, String alternateTint) {
+		this.name = name;
+		this.chestplateValue = chestplateValue;
+		this.chestplateIntegrity = chestplateIntegrity;
+		this.chestplateDurability = chestplateDurability;
+		this.baseProvidesToughness = baseProvidesToughness;
+		this.key = key;
+		this.textureBase = textureBase;
+		this.tint = tint;
+		this.tool = tool;
+		this.toolTier = toolTier;
+		this.useTint = useTint;
+		this.alternateTint = alternateTint;
+	}
+	
+	public String toStringHelmetModule(double scalar, double integrityLose, boolean loseIntegrity, boolean useToughness, String type) {
 		return
-				"    {\n" +
+				("    {\n" +
 				"      \"key\": \""+type+"/"+key+"\",\n" +
 				"      \"durability\": "+(chestplateDurability*((multipliers[0]+1)/2)*scalar)+",\n" +
-				"      \"integrity\": "+Math.ceil(chestplateIntegrity *multipliers[0]*scalar)+",\n" +
-				"      \"damage\": "+(chestplateValue*multipliers[0]*scalar)+",\n" +
-				"      \"attackSpeed\": "+(baseProvidesToughness?2:0)+",\n" +
+				"      \"integrity\": "+(Math.ceil(chestplateIntegrity *multipliers[0]*scalar)*(loseIntegrity?-integrityLose:1))+",\n" +
+				"      \"damage\": "+(useToughness?(baseProvidesToughness?(2*scalar*multipliers[0]):0):(Math.ceil(chestplateValue*multipliers[0]*scalar)))+",\n" +
+				"      \"attackSpeed\": "+(!useToughness?(baseProvidesToughness?(2*scalar):0):(Math.ceil(chestplateValue*multipliers[0]*scalar*multipliers[0])))+",\n" +
 				"      \"glyph\": {\n" +
 				"        \"tint\": \""+tint+"_glyph\",\n" +
 				"        \"textureX\": 88,\n" +
@@ -44,23 +63,23 @@ public class MaterialTier {
 				"      },\n" +
 				"      \"models\": [{\n" +
 				"        \"location\": \"tetric_additions:items/module/armor/helmet/"+textureBase+"\",\n" +
-				"        \"tint\": \""+tint+"\"\n" +
+				"        \"tint\": \""+(useTint?(alternateTint==null?tint:alternateTint):"string")+"\"\n" +
 				"      }]\n" +
-				"    }";
+				"    }").replace("%type%",type.substring(type.lastIndexOf("/")+1));
 	}
 	
-	public String toStringHelmetSchema(float scalar, int integrityLose, boolean loseIntegrity, String type) {
+	public String toStringHelmetSchema(double scalar, double integrityLose, boolean loseIntegrity, String type) {
 		return
-				"    {\n" +
+				("    {\n" +
 				"      \"material\": {\n" +
 				"        \"item\": \""+name+"\",\n" +
-				"        \"count\": "+Math.floor(5*scalar)+"\n" +
+				"        \"count\": "+(((int)(Math.floor(5*scalar)))+"").replace(".0","")+"\n" +
 				"      },\n" +
 				"      \"requiredCapabilities\": {\n" +
 				"        \""+tool+"\": "+toolTier+"\n" +
 				"      },\n" +
-				"      \"moduleKey\": \"armor/helmet/"+type+"\",\n" +
-				"      \"moduleVariant\": \"armor/helmet/"+type+"/"+key+"\"\n" +
-				"    }";
+				"      \"moduleKey\": \""+type+"\",\n" +
+				"      \"moduleVariant\": \""+type+"/"+key+"\"\n" +
+				"    }").replace("%type%",type.substring(type.lastIndexOf("/")+1));
 	}
 }

@@ -6,14 +6,14 @@
   "materialSlotCount": 1,
   "displayType": "major",
   "glyph": {
-    "textureX": 88,
-    "textureY": 16
+    "textureX": 99,
+    "textureY": 35
   },
   "outcomes": [
     {
       "material": {
         "item": "minecraft:diamond",
-        "count": 4
+        "count": 5
       },
       "requiredCapabilities": {
         "hammer": 3
@@ -24,7 +24,7 @@
     {
       "material": {
         "item": "minecraft:iron_ingot",
-        "count": 4
+        "count": 5
       },
       "requiredCapabilities": {
         "hammer": 2
@@ -35,7 +35,7 @@
     {
       "material": {
         "item": "minecraft:gold_ingot",
-        "count": 4
+        "count": 5
       },
       "requiredCapabilities": {
         "hammer": 1
@@ -45,7 +45,8 @@
     },
     {
       "material": {
-        "item": "minecraft:leather"
+        "item": "minecraft:leather",
+        "count": 5
       },
       "requiredCapabilities": {
         "cut": 2
@@ -56,7 +57,7 @@
     {
       "material": {
         "item": "minecraft:rabbit_hide",
-        "count": 2
+        "count": 5
       },
       "requiredCapabilities": {
         "cut": 2
@@ -67,10 +68,10 @@
     {
       "material": {
         "item": "minecraft:cactus",
-        "count": 4
+        "count": 5
       },
       "requiredCapabilities": {
-        "cut": 1
+        "cut": 3
       },
       "moduleKey": "armor/helmet/base",
       "moduleVariant": "armor/helmet/base/cactus"
@@ -78,10 +79,10 @@
     {
       "material": {
         "item": "minecraft:prismarine_shard",
-        "hammer": 2
+        "count": 5
       },
       "requiredCapabilities": {
-        "cut": 1
+        "hammer": 2
       },
       "moduleKey": "armor/helmet/base",
       "moduleVariant": "armor/helmet/base/prismarine"

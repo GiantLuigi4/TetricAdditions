@@ -1,10 +1,15 @@
 package com.tfc.tetricadditions.data;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class Datagen {
 	private static final String[][] types = new String[][] {
+			//Helmet stuff
 			{
 				"armor/helmet/base",
-					"1", "0", "false",
+					"1", "0", "false", "false",
+					"99","35",
 					"minecraft:diamond",
 					"minecraft:iron_ingot",
 					"minecraft:gold_ingot",
@@ -12,40 +17,105 @@ public class Datagen {
 					"minecraft:rabbit_hide",
 					"minecraft:cactus",
 					"minecraft:prismarine_shard",
-			}
+			},
+			{
+				"armor/helmet/plate1",
+					"0.5", "0.5", "true", "true",
+					"99","35",
+					"minecraft:diamond",
+					"minecraft:iron_ingot",
+					"minecraft:gold_ingot",
+					"minecraft:leather",
+					"minecraft:rabbit_hide",
+					"minecraft:cactus",
+					"minecraft:prismarine_shard",
+			},
+			{
+				"armor/helmet/plate2",
+					"0.2", "0.2", "true", "false",
+					"99","35",
+					"minecraft:diamond",
+					"minecraft:iron_ingot",
+					"minecraft:gold_ingot",
+					"minecraft:leather",
+					"minecraft:rabbit_hide",
+					"minecraft:cactus",
+					"minecraft:prismarine_shard",
+			},
+//			{
+//				"armor/helmet/binding",
+//					"0.18", "0.1", "true", "false",
+//					"88","16",
+//					"minecraft:leather",
+//					"minecraft:rabbit_hide",
+//					"minecraft:string",
+//					"minecraft:vine",
+//					"tetra:forged_bolt",
+//			},
 	};
 	
 	private static final MaterialTier[] tiers = new MaterialTier[] {
-			new MaterialTier("minecraft:diamond",8,10,528,true,"diamond","base","diamond","hammer",3),
-			new MaterialTier("minecraft:gold_ingot",5,3,112,false,"gold","base","gold","hammer",1),
-			new MaterialTier("minecraft:iron_ingot",6,5,240,false,"iron","base","iron","hammer",2),
-			new MaterialTier("minecraft:leather",3,4,80,false,"leather","base","leather","cut",2),
-			new MaterialTier("minecraft:cactus",2,2,40,false,"cactus","special/normal_","string","cut",3),
-			new MaterialTier("minecraft:rabbit_hide",4,3,60,false,"hide","base","hide","cut",2),
-			new MaterialTier("minecraft:prismarine_shard",7,5,360,false,"prismarine","special/normal_","string","hammer",2),
+			new MaterialTier("minecraft:diamond",8,10,528,true,"diamond","%type%","diamond","hammer",3),
+			new MaterialTier("minecraft:gold_ingot",5,3,112,false,"gold","%type%","gold","hammer",1),
+			new MaterialTier("minecraft:iron_ingot",6,5,240,false,"iron","%type%","iron","hammer",2),
+			new MaterialTier("minecraft:leather",3,4,80,false,"leather","%type%","leather","cut",2),
+			new MaterialTier("minecraft:cactus",2,2,40,false,"cactus","special/cactus_%type%","vine","cut",3, false, null),
+			new MaterialTier("minecraft:rabbit_hide",4,3,60,false,"hide","%type%","hide","cut",2),
+			new MaterialTier("minecraft:prismarine_shard",7,5,360,false,"prismarine","special/prismarine_%type%","prismarine","hammer",2, false, null),
+			new MaterialTier("minecraft:string",1,1,10,false,"string","%type%","string","cutting",1),
+			new MaterialTier("minecraft:vine",2,2,35,false,"vine","%type%","vine","cutting",2),
+			new MaterialTier("tetra:forged_bolt",4,5,623,true,"bolt","special/bolt_%type%","bolt","hammer",4, false, null),
 	};
 	
 	public static void main(String[] args) {
 		for (String[] type : types) {
+			String typeStr = type[0];
+			int startIndex = 7;
+			
 			//Datagen Modules
 			String module = "{\n" +
 					"  \"replace\": false,\n" +
-					"  \"slots\": [\"armor/helmet/base\"],\n" +
+					"  \"slots\": [\""+typeStr+"\"],\n" +
 					"  \"type\": \"tetra:basic_module\",\n" +
 					"  \"renderLayer\": \"highest\",\n" +
-					"  \"tweakKey\": \"tetra:armor/helmet/base\",\n" +
+					"  \"tweakKey\": \"tetra:"+typeStr+"\",\n" +
 					"  \"variants\": [";
-			String typeStr = type[0];
-			int startIndex = 4;
-			for (int material=startIndex;material<type.length;material++) {
-				module+="\n"+getTier(type[material]).toStringHelmetModule(Integer.parseInt(type[1]),Integer.parseInt(type[2]),Boolean.parseBoolean(type[3]),typeStr);
+				for (int material=startIndex;material<type.length;material++) {
+					module+="\n"+getTier(type[material])
+							.toStringHelmetModule(
+									Double.parseDouble(type[1]),
+									Double.parseDouble(type[2]),
+									Boolean.parseBoolean(type[3]),
+									Boolean.parseBoolean(type[4]),
+									typeStr
+							);
 				if (material != type.length-1)
 					module+=",";
 			}
 			module+="\n  ]\n}";
-			System.out.println(module.replace("tint\": \"cactus","tint\": \"vine"));
+			writeFile("src/main/resources/data/tetra/modules/"+type[0]+".json",module);
 			
-			
+			//Datagen Schemas
+			String schema = "{\n" +
+					"  \"replace\": false,\n" +
+					"  \"slots\": [\n" +
+					"    \""+typeStr+"\"\n" +
+					"  ],\n" +
+					"  \"materialSlotCount\": 1,\n" +
+					"  \"displayType\": \"major\",\n" +
+					"  \"glyph\": {\n" +
+					"    \"textureX\": "+type[5]+",\n" +
+					"    \"textureY\": "+type[6]+"\n" +
+					"  },\n" +
+					"  \"outcomes\": [";
+			for (int material=startIndex;material<type.length;material++) {
+				schema+="\n"+getTier(type[material]).toStringHelmetSchema(Double.parseDouble(type[1]),Double.parseDouble(type[2]),Boolean.parseBoolean(type[3]),typeStr);
+				if (material != type.length-1)
+					schema+=",";
+			}
+			schema+="\n  ]\n}";
+//			System.out.println(schema);
+			writeFile("src/main/resources/data/tetra/schemas/"+type[0]+".json",schema);
 		}
 	}
 	
@@ -56,5 +126,19 @@ public class Datagen {
 			}
 		}
 		return null;
+	}
+	
+	public static void writeFile(String path, String text) {
+		try {
+			File f = new File(path);
+			if (!f.exists()) {
+				f.getParentFile().mkdirs();
+				f.createNewFile();
+			}
+			FileOutputStream stream = new FileOutputStream(f);
+			stream.write(text.getBytes());
+			stream.close();
+		} catch (Throwable ignored) {
+		}
 	}
 }
