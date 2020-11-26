@@ -71,7 +71,7 @@
         "count": 3
       },
       "requiredCapabilities": {
-        "cut": 3
+        "cut": 2
       },
       "moduleKey": "armor/leggings/plate1",
       "moduleVariant": "armor/leggings/plate1/cactus"

@@ -66,7 +66,7 @@ public class Datagen {
 			new MaterialTier("minecraft:gold_ingot", 5, 3, 112, false, "gold", "%type%", "gold", "hammer", 1),
 			new MaterialTier("minecraft:iron_ingot", 6, 5, 240, false, "iron", "%type%", "iron", "hammer", 2),
 			new MaterialTier("minecraft:leather", 3, 4, 80, false, "leather", "%type%", "leather", "cut", 2),
-			new MaterialTier("minecraft:cactus", 2, 2, 40, false, "cactus", "special/cactus_%type%", "vine", "cut", 3, false, null),
+			new MaterialTier("minecraft:cactus", 2, 2, 40, false, "cactus", "special/cactus_%type%", "vine", "cut", 2, false, null),
 			new MaterialTier("minecraft:rabbit_hide", 4, 3, 60, false, "hide", "%type%", "hide", "cut", 2),
 			new MaterialTier("minecraft:prismarine_shard", 7, 5, 360, false, "prismarine", "special/prismarine_%type%", "prismarine", "hammer", 2, false, null),
 			new MaterialTier("minecraft:string", 1, 1, 10, false, "string", "%type%", "string", "cutting", 1),

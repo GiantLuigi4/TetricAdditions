@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
@@ -33,9 +34,11 @@ public class TetricAdditions {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(TetricAdditions::setup);
 		
 		if (FMLEnvironment.dist.isClient()) {
-			FMLJavaModLoadingContext.get().getModEventBus().addListener(TetricAdditions::provideTextures);
-//			MinecraftForge.EVENT_BUS.addListener(Client::onRenderEntity);
+			FMLJavaModLoadingContext.get().getModEventBus().addListener(
+					TetricAdditions::provideTextures
+			);
 		}
+		MinecraftForge.EVENT_BUS.addListener(Server::onEntityDamaged);
 	}
 	
 	public static void provideTextures(TextureStitchEvent.Pre event) {

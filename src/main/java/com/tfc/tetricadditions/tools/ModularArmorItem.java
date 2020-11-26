@@ -1,6 +1,5 @@
 package com.tfc.tetricadditions.tools;
 
-import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -35,6 +34,25 @@ public class ModularArmorItem extends ModularItem {
 		this.slot = slot;
 	}
 	
+	public static String getPieceNameForStack(ItemStack stack) {
+		if (stack.getItem() instanceof ModularArmorItem) {
+			EquipmentSlotType slot = ((ModularArmorItem) stack.getItem()).slot;
+			switch (slot) {
+				case CHEST:
+					return "chest";
+				case FEET:
+					return "boots";
+				case LEGS:
+					return "pants";
+				case HEAD:
+					return "helmet";
+			}
+			return slot.getName().toLowerCase();
+		} else {
+			throw new RuntimeException(new IllegalArgumentException("Item of class " + stack.getItem().getClass().getName() + " is not an ModularArmorItem."));
+		}
+	}
+	
 	public final String getPieceName() {
 		switch (slot) {
 			case CHEST:
@@ -63,6 +81,106 @@ public class ModularArmorItem extends ModularItem {
 		}
 	}
 	
+	@Override
+	public void onArmorTick(ItemStack itemStack, World world, PlayerEntity player) {
+//		double armorModifier = this.getDamageModifier(itemStack);
+//		double armorToughnessModifier = this.getSpeedModifier(itemStack);
+//		try {
+////			if (!itemStack.getOrCreateTag().contains("AttributeModifiers")) {
+////				itemStack.getOrCreateTag().put("AttributeModifiers",new ListNBT());
+////			}
+////			ListNBT nbt = itemStack.getOrCreateTag().getList("AttributeModifiers", 10);
+////			AtomicBoolean hasTetricArmorMod = new AtomicBoolean(false);
+////			nbt.forEach((nbt_check)->{
+////				if (nbt_check instanceof CompoundNBT) {
+////					CompoundNBT compoundNBT = (CompoundNBT) nbt_check;
+////					if (compoundNBT.getString("AttributeName").equals("generic.armor")) {
+////						if (compoundNBT.getString("Name").equals("tetric_additions.armor_mod")) {
+////							hasTetricArmorMod.set(true);
+////							compoundNBT.putDouble("Amount", (int) armor_modifier);
+////						}
+////					}
+////				}
+////			});
+////			if (!hasTetricArmorMod.get()) {
+////				CompoundNBT modifier = new CompoundNBT();
+////				modifier.putString("AttributeName","generic.armor");
+////				modifier.putString("Name","tetric_additions.armor_mod");
+////				modifier.putDouble("Amount",1);
+////				modifier.putString("Slot",slot.getName());
+////				modifier.putInt("Operation",0);
+////				modifier.putUniqueId("UUID",ARMOR_MODIFIERS[0]);
+////				nbt.add(0,modifier);
+////				System.out.println(nbt);
+////			}
+////			itemStack.getOrCreateTag().put("AttributeModifiers",nbt);
+//
+//			if (!itemStack.getOrCreateTag().contains("AttributeModifiers")) {
+//				itemStack.getOrCreateTag().put("AttributeModifiers",new ListNBT());
+//			}
+//			boolean hasArmorModif = true;
+//			boolean hasArmorToughnessModif = true;
+//			while (hasArmorModif || hasArmorToughnessModif) {
+//				ListNBT modifiers = itemStack.getOrCreateTag().getList("AttributeModifiers",10);
+//				hasArmorModif = false;
+//				hasArmorToughnessModif = false;
+//				int index = 0;
+//				int armorModifierNBT = 0;
+//				int armorToughnessNBT = 0;
+//				for (INBT inbt : new ArrayList<>(modifiers)) {
+//					if (inbt instanceof CompoundNBT) {
+//						if (
+//								((CompoundNBT) inbt).getString("Name").equals("tetric_addtions.armor") ||
+//										((CompoundNBT) inbt).getUniqueId("UUID").equals(ARMOR_MODIFIERS[0])
+//						) {
+//							armorModifierNBT = index;
+//							hasArmorModif = true;
+//						} else if (
+//								((CompoundNBT) inbt).getString("Name").equals("tetric_addtions.armor_toughness") ||
+//										((CompoundNBT) inbt).getUniqueId("UUID").equals(ARMOR_MODIFIERS2[0])
+//						) {
+//							armorToughnessNBT = index;
+//							hasArmorToughnessModif = true;
+//						} else {
+//							index++;
+//						}
+//						if (hasArmorModif&&hasArmorToughnessModif) {
+//							break;
+//						}
+//					}
+//				}
+//				if (hasArmorModif) {
+//					modifiers.remove(armorModifierNBT);
+//					modifiers.remove(armorToughnessNBT);
+//				}
+//				itemStack.getOrCreateTag().put("AttributeModifiers",modifiers);
+//			}
+//
+//			itemStack.addAttributeModifier(
+//					SharedMonsterAttributes.ARMOR.getName(),
+//					new AttributeModifier(
+//							ARMOR_MODIFIERS[slot.getIndex()],
+//							"tetric_addtions.armor",
+//							Math.round(armorModifier),
+//							AttributeModifier.Operation.ADDITION
+//					),
+//					EquipmentSlotType.HEAD
+//			);
+//			itemStack.addAttributeModifier(
+//					SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(),
+//					new AttributeModifier(
+//							ARMOR_MODIFIERS2[slot.getIndex()],
+//							"tetric_addtions.armor_toughness",
+//							armorToughnessModifier,
+//							AttributeModifier.Operation.ADDITION
+//					),
+//					EquipmentSlotType.HEAD
+//			);
+//		} catch (Throwable ignored) {
+//			ignored.printStackTrace();
+//		}
+	}
+	
 	@Nullable
 	@Override
 	public EquipmentSlotType getEquipmentSlot(ItemStack stack) {
@@ -89,24 +207,24 @@ public class ModularArmorItem extends ModularItem {
 	
 	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot, ItemStack stack) {
-		Multimap<String, AttributeModifier> modifiers = HashMultimap.create();
+		Multimap<String, AttributeModifier> modifiers = super.getAttributeModifiers(slot, stack);
 		if (slot == EquipmentSlotType.HEAD) {
-			double armor_modifier = this.getDamageModifier(stack);
+			double armorModifier = this.getDamageModifier(stack);
+			double armorToughnessModifier = this.getSpeedModifier(stack);
 			modifiers.put(
 					SharedMonsterAttributes.ARMOR.getName(),
 					new AttributeModifier(
-							ARMOR_MODIFIERS[0],
-							"tetric_additions.armor_mod",
-							armor_modifier,
+							ARMOR_MODIFIERS[slot.getIndex()],
+							"generic.armor",
+							armorModifier,
 							AttributeModifier.Operation.ADDITION
 					)
 			);
-			double armorToughnessModifier = this.getSpeedModifier(stack);
 			modifiers.put(
 					SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(),
 					new AttributeModifier(
-							ARMOR_MODIFIERS2[0],
-							"tetric_additions.armor_mod",
+							ARMOR_MODIFIERS2[slot.getIndex()],
+							"generic.armor_toughness",
 							armorToughnessModifier,
 							AttributeModifier.Operation.ADDITION
 					)

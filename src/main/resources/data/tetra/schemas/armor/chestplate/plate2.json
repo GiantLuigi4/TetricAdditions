@@ -71,7 +71,7 @@
         "count": 1
       },
       "requiredCapabilities": {
-        "cut": 3
+        "cut": 2
       },
       "moduleKey": "armor/chestplate/plate2",
       "moduleVariant": "armor/chestplate/plate2/cactus"

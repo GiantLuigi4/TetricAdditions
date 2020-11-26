@@ -71,7 +71,7 @@
         "count": 1
       },
       "requiredCapabilities": {
-        "cut": 3
+        "cut": 2
       },
       "moduleKey": "armor/helmet/plate2",
       "moduleVariant": "armor/helmet/plate2/cactus"
