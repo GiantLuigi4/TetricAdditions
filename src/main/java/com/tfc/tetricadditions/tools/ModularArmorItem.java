@@ -208,7 +208,7 @@ public class ModularArmorItem extends ModularItem {
 	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot, ItemStack stack) {
 		Multimap<String, AttributeModifier> modifiers = super.getAttributeModifiers(slot, stack);
-		if (slot == EquipmentSlotType.HEAD) {
+		if (!this.isBroken(stack) && slot == EquipmentSlotType.HEAD) {
 			double armorModifier = this.getDamageModifier(stack);
 			double armorToughnessModifier = this.getSpeedModifier(stack);
 			modifiers.put(
