@@ -18,17 +18,20 @@ public class Server {
 				event.getEntity().getArmorInventoryList().iterator().forEachRemaining((stack) -> {
 					if (stack.getItem() instanceof ModularArmorItem) {
 						ModularArmorItem armor = (ModularArmorItem) stack.getItem();
-						for (String key : armor.getMajorModuleKeys()) {
-							ItemModule major = armor.getModuleFromSlot(stack, key);
-							if (major != null) {
-								if (major.getName(stack).contains("cactus")) totalThorns.getAndAdd(3);
-								else if (major.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+						armor.tickHoningProgression(event.getEntityLiving(), stack, (int) Math.ceil(event.getAmount() / 16f));
+						if (!armor.isBroken(stack)) {
+							for (String key : armor.getMajorModuleKeys()) {
+								ItemModule major = armor.getModuleFromSlot(stack, key);
+								if (major != null) {
+									if (major.getName(stack).contains("cactus")) totalThorns.getAndAdd(3);
+									else if (major.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+								}
 							}
-						}
-						for (ItemModule minor : armor.getMinorModules(stack)) {
-							if (minor != null) {
-								if (minor.getName(stack).contains("cactus")) totalThorns.getAndAdd(2);
-								else if (minor.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+							for (ItemModule minor : armor.getMinorModules(stack)) {
+								if (minor != null) {
+									if (minor.getName(stack).contains("cactus")) totalThorns.getAndAdd(2);
+									else if (minor.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+								}
 							}
 						}
 					}
@@ -59,10 +62,10 @@ public class Server {
 						toughness += modifier.getAmount();
 					}
 					double scalar = 0.8f;
-					System.out.println(scalar);
-					System.out.println(toughness);
-					System.out.println(scalar * event.getAmount() / (toughness));
-					System.out.println(event.getAmount() / (toughness));
+//					System.out.println(scalar);
+//					System.out.println(toughness);
+//					System.out.println(scalar * event.getAmount() / (toughness));
+//					System.out.println(event.getAmount() / (toughness));
 					stack.setDamage((int) (stack.getDamage() + (scalar * event.getAmount()) / (toughness)));
 				}
 			}

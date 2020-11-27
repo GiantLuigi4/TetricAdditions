@@ -1,0 +1,50 @@
+[
+  {
+    "predicate": {
+      "item": "minecraft:leather_boots"
+    },
+    "item": "tetric_additions:modular_boots",
+    "modules": {
+      "armor/boots/base": [
+        "armor/boots/base",
+        "armor/boots/base/leather"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:iron_boots"
+    },
+    "item": "tetric_additions:modular_boots",
+    "modules": {
+      "armor/boots/base": [
+        "armor/boots/base",
+        "armor/boots/base/iron"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:golden_boots"
+    },
+    "item": "tetric_additions:modular_boots",
+    "modules": {
+      "armor/boots/base": [
+        "armor/boots/base",
+        "armor/boots/base/gold"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:diamond_boots"
+    },
+    "item": "tetric_additions:modular_boots",
+    "modules": {
+      "armor/boots/base": [
+        "armor/boots/base",
+        "armor/boots/base/diamond"
+      ]
+    }
+  }
+]
