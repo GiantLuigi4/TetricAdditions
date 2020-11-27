@@ -35,7 +35,7 @@ public class Server {
 				});
 				if (totalThorns.get() != 0) {
 					event.getSource().getTrueSource().attackEntityFrom(DamageSource.causeThornsDamage(event.getEntity()),
-							Math.min(30, totalThorns.get() * (Math.max(1, event.getAmount()) / 3f))
+							Math.min(30, totalThorns.get() * (Math.max(0, event.getAmount()) / 3f))
 					);
 				}
 			}
@@ -65,9 +65,6 @@ public class Server {
 					System.out.println(event.getAmount() / (toughness));
 					stack.setDamage((int) (stack.getDamage() + (scalar * event.getAmount()) / (toughness)));
 				}
-//				if ((int)(stack.getDamage()+event.getAmount()) >= stack.getMaxDamage()) {
-//					stack.setDamage(stack.getMaxDamage());
-//				}
 			}
 		});
 	}

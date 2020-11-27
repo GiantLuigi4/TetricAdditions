@@ -1,11 +1,14 @@
 package com.tfc.tetricadditions.data;
 
 public class MaterialTier {
-	private final double[] multipliers = new double[]{
+	private static final double[] multipliers = new double[]{
 			0.375, 1, 0.75, 0.375
 	};
-	private final double[] costs = new double[]{
+	private static final double[] costs = new double[]{
 			5, 8, 7, 4
+	};
+	private static final String[] pieces = new String[]{
+			"helmet", "chestplate", "leggings", "boots"
 	};
 	
 	public final String name;
@@ -65,10 +68,13 @@ public class MaterialTier {
 						"        \"textureY\": 16\n" +
 						"      },\n" +
 						"      \"models\": [{\n" +
-						"        \"location\": \"tetric_additions:items/module/armor/helmet/" + textureBase + "\",\n" +
+						"        \"location\": \"tetric_additions:items/module/armor/%part%/" + textureBase + "\",\n" +
 						"        \"tint\": \"" + (useTint ? (alternateTint == null ? tint : alternateTint) : "string") + "\"\n" +
 						"      }]\n" +
-						"    }").replace("%type%", type.substring(type.lastIndexOf("/") + 1));
+						"    }")
+						.replace("%type%", type.substring(type.lastIndexOf("/") + 1))
+						.replace("%part%", pieces[part])
+				;
 	}
 	
 	public String toStringSchema(double scalar, double integrityLose, boolean loseIntegrity, String type, int part) {

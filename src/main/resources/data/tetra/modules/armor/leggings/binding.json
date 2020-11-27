@@ -17,7 +17,7 @@
         "textureY": 16
       },
       "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding",
+        "location": "tetric_additions:items/module/armor/leggings/binding",
         "tint": "leather"
       }]
     },
@@ -32,10 +32,11 @@
         "textureX": 88,
         "textureY": 16
       },
-      "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding",
-        "tint": "hide"
-      }]
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/leggings/binding",
+          "tint": "hide"
+        }]
     },
     {
       "key": "armor/leggings/binding/string",
@@ -48,10 +49,11 @@
         "textureX": 88,
         "textureY": 16
       },
-      "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding",
-        "tint": "string"
-      }]
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/leggings/binding",
+          "tint": "string"
+        }]
     },
     {
       "key": "armor/leggings/binding/vine",
@@ -64,10 +66,11 @@
         "textureX": 88,
         "textureY": 16
       },
-      "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/binding",
-        "tint": "vine"
-      }]
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/leggings/binding",
+          "tint": "vine"
+        }]
     },
     {
       "key": "armor/leggings/binding/bolt",
@@ -80,10 +83,11 @@
         "textureX": 88,
         "textureY": 16
       },
-      "models": [{
-        "location": "tetric_additions:items/module/armor/helmet/special/bolt_binding",
-        "tint": "string"
-      }]
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/leggings/special/bolt_binding",
+          "tint": "string"
+        }]
     }
   ]
 }

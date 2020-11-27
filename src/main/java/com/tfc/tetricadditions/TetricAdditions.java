@@ -1,6 +1,7 @@
 package com.tfc.tetricadditions;
 
-import com.tfc.tetricadditions.tools.ItemModularHelmet;
+import com.tfc.tetricadditions.tools.ModularBootsItem;
+import com.tfc.tetricadditions.tools.ModularHelmetItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.item.Item;
@@ -178,12 +179,9 @@ public class TetricAdditions {
 	}
 	
 	public static void registerItems(RegistryEvent.Register<Item> itemRegistryEvent) {
-		itemRegistryEvent.getRegistry().register(
-				new ItemModularHelmet(
-						new Item.Properties()
-								.group(TetraItemGroup.instance)
-								.maxStackSize(1)
-				)
+		itemRegistryEvent.getRegistry().registerAll(
+				new ModularHelmetItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1)),
+				new ModularBootsItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1))
 		);
 	}
 }

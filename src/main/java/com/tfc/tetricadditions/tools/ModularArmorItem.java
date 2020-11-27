@@ -3,6 +3,7 @@ package com.tfc.tetricadditions.tools;
 import com.google.common.collect.Multimap;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -185,6 +186,11 @@ public class ModularArmorItem extends ModularItem {
 	@Override
 	public EquipmentSlotType getEquipmentSlot(ItemStack stack) {
 		return slot;
+	}
+	
+	@Override
+	public boolean canEquip(ItemStack stack, EquipmentSlotType armorType, Entity entity) {
+		return armorType.equals(slot);
 	}
 	
 	@OnlyIn(Dist.CLIENT)
