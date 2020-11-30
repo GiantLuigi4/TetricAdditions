@@ -2,7 +2,7 @@ package com.tfc.tetricadditions.utils.data;
 
 public class MaterialTier {
 	private static final double[] multipliers = new double[]{
-			0.375, 1, 0.75, 0.375
+			0.33333333333, 1, 0.75, 0.33333333333
 	};
 	private static final double[] costs = new double[]{
 			5, 8, 7, 4
@@ -78,6 +78,7 @@ public class MaterialTier {
 						"    }")
 						.replace("%type%", type.substring(type.lastIndexOf("/") + 1))
 						.replace("%part%", pieces[part])
+						.replace("$alt", "")
 				;
 	}
 	
@@ -93,7 +94,10 @@ public class MaterialTier {
 						"      },\n" +
 						"      \"moduleKey\": \"" + type + "\",\n" +
 						"      \"moduleVariant\": \"" + type + "/" + key + "\"\n" +
-						"    }").replace("%type%", type.substring(type.lastIndexOf("/") + 1));
+						"    }")
+						.replace("%type%", type.substring(type.lastIndexOf("/") + 1))
+						.replace("$alt", "")
+				;
 	}
 	
 	public String toStringSchemaDye(String type, int part, String dye, int color) {
@@ -107,6 +111,8 @@ public class MaterialTier {
 						"            \"moduleVariant\": \"" + type + "_dye/" + dye + "/" + color + "\"\n" +
 						"        }"
 								.replace("%type%", type.substring(type.lastIndexOf("/") + 1))
-								.replace("%part%", pieces[part]);
+								.replace("%part%", pieces[part])
+								.replace("$alt", "")
+				;
 	}
 }

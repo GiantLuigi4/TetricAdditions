@@ -7,7 +7,7 @@
   "variants": [
     {
       "key": "armor/boots/plate2/diamond",
-      "durability": 72.60000000000001,
+      "durability": 70.399999999824,
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.4,
@@ -29,7 +29,7 @@
     },
     {
       "key": "armor/boots/plate2/iron",
-      "durability": 33.0,
+      "durability": 31.99999999992,
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -51,7 +51,7 @@
     },
     {
       "key": "armor/boots/plate2/gold",
-      "durability": 15.4,
+      "durability": 14.933333333296,
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -73,7 +73,7 @@
     },
     {
       "key": "armor/boots/plate2/leather",
-      "durability": 11.0,
+      "durability": 10.66666666664,
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -95,7 +95,7 @@
     },
     {
       "key": "armor/boots/plate2/hide",
-      "durability": 8.25,
+      "durability": 7.99999999998,
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -117,7 +117,7 @@
     },
     {
       "key": "armor/boots/plate2/cactus",
-      "durability": 5.5,
+      "durability": 5.33333333332,
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -139,7 +139,7 @@
     },
     {
       "key": "armor/boots/plate2/prismarine",
-      "durability": 49.5,
+      "durability": 47.99999999988,
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,

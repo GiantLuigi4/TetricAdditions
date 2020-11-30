@@ -7,12 +7,12 @@
   "variants": [
     {
       "key": "armor/helmet/plate1/diamond",
-      "durability": 181.5,
+      "durability": 175.99999999956,
       "integrity": -1.0,
-      "damage": 0.375,
+      "damage": 0.33333333333,
       "attackSpeed": 1.0,
       "effects": {
-        "armor": 0.375,
+        "armor": 0.33333333333,
         "toughness": 1.0
       },
       "glyph": {
@@ -29,7 +29,7 @@
     },
     {
       "key": "armor/helmet/plate1/iron",
-      "durability": 82.5,
+      "durability": 79.9999999998,
       "integrity": -0.5,
       "damage": 0.0,
       "attackSpeed": 1.0,
@@ -51,7 +51,7 @@
     },
     {
       "key": "armor/helmet/plate1/gold",
-      "durability": 38.5,
+      "durability": 37.33333333324,
       "integrity": -0.5,
       "damage": 0.0,
       "attackSpeed": 1.0,
@@ -73,7 +73,7 @@
     },
     {
       "key": "armor/helmet/plate1/leather",
-      "durability": 27.5,
+      "durability": 26.666666666599998,
       "integrity": -0.5,
       "damage": 0.0,
       "attackSpeed": 1.0,
@@ -95,7 +95,7 @@
     },
     {
       "key": "armor/helmet/plate1/hide",
-      "durability": 20.625,
+      "durability": 19.99999999995,
       "integrity": -0.5,
       "damage": 0.0,
       "attackSpeed": 1.0,
@@ -117,7 +117,7 @@
     },
     {
       "key": "armor/helmet/plate1/cactus",
-      "durability": 13.75,
+      "durability": 13.333333333299999,
       "integrity": -0.5,
       "damage": 0.0,
       "attackSpeed": 1.0,
@@ -139,7 +139,7 @@
     },
     {
       "key": "armor/helmet/plate1/prismarine",
-      "durability": 123.75,
+      "durability": 119.9999999997,
       "integrity": -0.5,
       "damage": 0.0,
       "attackSpeed": 1.0,

@@ -7,7 +7,7 @@
   "variants": [
     {
       "key": "armor/helmet/base/diamond",
-      "durability": 363.0,
+      "durability": 351.99999999912,
       "integrity": 4.0,
       "damage": 3.0,
       "attackSpeed": 2.0,
@@ -29,12 +29,12 @@
     },
     {
       "key": "armor/helmet/base/iron",
-      "durability": 165.0,
+      "durability": 159.9999999996,
       "integrity": 2.0,
-      "damage": 3.0,
+      "damage": 2.0,
       "attackSpeed": 0.0,
       "effects": {
-        "armor": 3.0,
+        "armor": 2.0,
         "toughness": 0.0
       },
       "glyph": {
@@ -51,8 +51,8 @@
     },
     {
       "key": "armor/helmet/base/gold",
-      "durability": 77.0,
-      "integrity": 2.0,
+      "durability": 74.66666666648,
+      "integrity": 1.0,
       "damage": 2.0,
       "attackSpeed": 0.0,
       "effects": {
@@ -73,12 +73,12 @@
     },
     {
       "key": "armor/helmet/base/leather",
-      "durability": 55.0,
+      "durability": 53.333333333199995,
       "integrity": 2.0,
-      "damage": 2.0,
+      "damage": 1.0,
       "attackSpeed": 0.0,
       "effects": {
-        "armor": 2.0,
+        "armor": 1.0,
         "toughness": 0.0
       },
       "glyph": {
@@ -95,8 +95,8 @@
     },
     {
       "key": "armor/helmet/base/hide",
-      "durability": 41.25,
-      "integrity": 2.0,
+      "durability": 39.9999999999,
+      "integrity": 1.0,
       "damage": 2.0,
       "attackSpeed": 0.0,
       "effects": {
@@ -117,7 +117,7 @@
     },
     {
       "key": "armor/helmet/base/cactus",
-      "durability": 27.5,
+      "durability": 26.666666666599998,
       "integrity": 1.0,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -139,7 +139,7 @@
     },
     {
       "key": "armor/helmet/base/prismarine",
-      "durability": 247.5,
+      "durability": 239.9999999994,
       "integrity": 2.0,
       "damage": 3.0,
       "attackSpeed": 0.0,

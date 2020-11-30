@@ -98,10 +98,10 @@
       "durability": 2.88,
       "integrity": -0.1,
       "damage": 1.0,
-      "attackSpeed": 0.0,
+      "attackSpeed": 0.36,
       "effects": {
         "armor": 1.0,
-        "toughness": 0.0
+        "toughness": 0.36
       },
       "glyph": {
         "tint": "phantom_glyph",

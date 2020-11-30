@@ -74,6 +74,7 @@ public class Datagen {
 			new MaterialTier("minecraft:string", 1, 1, 10, false, "string", "%type%", "string", "cutting", 1),
 			new MaterialTier("minecraft:vine", 2, 2, 35, false, "vine", "%type%", "vine", "cutting", 2),
 			new MaterialTier("minecraft:phantom_membrane", 1, 2, 16, false, "phantom", "special/phantom_membrane_%type%", "phantom", "cutting", 2, false, null),
+			new MaterialTier("minecraft:phantom_membrane$alt", 3, 2, 16, true, "phantom", "special/phantom_membrane_%type%", "phantom", "cutting", 2, false, null),
 			new MaterialTier("tetra:forged_bolt", 4, 5, 623, true, "bolt", "special/bolt_%type%", "bolt", "hammer", 4, false, null),
 	};
 	
@@ -201,7 +202,7 @@ public class Datagen {
 						"minecraft:rabbit_hide",
 						"minecraft:string",
 						"minecraft:vine",
-						"minecraft:phantom_membrane",
+						"minecraft:phantom_membrane$alt",
 						"tetra:forged_bolt",
 				},
 		};

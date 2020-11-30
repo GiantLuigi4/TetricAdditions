@@ -7,7 +7,7 @@
   "variants": [
     {
       "key": "armor/helmet/binding/leather",
-      "durability": 9.9,
+      "durability": 9.599999999976,
       "integrity": -0.1,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -29,7 +29,7 @@
     },
     {
       "key": "armor/helmet/binding/hide",
-      "durability": 7.425,
+      "durability": 7.1999999999819995,
       "integrity": -0.1,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -51,7 +51,7 @@
     },
     {
       "key": "armor/helmet/binding/string",
-      "durability": 1.2375,
+      "durability": 1.199999999997,
       "integrity": -0.1,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -73,7 +73,7 @@
     },
     {
       "key": "armor/helmet/binding/vine",
-      "durability": 4.33125,
+      "durability": 4.1999999999895,
       "integrity": -0.1,
       "damage": 1.0,
       "attackSpeed": 0.0,
@@ -95,13 +95,13 @@
     },
     {
       "key": "armor/helmet/binding/phantom",
-      "durability": 1.98,
+      "durability": 1.9199999999951998,
       "integrity": -0.1,
       "damage": 1.0,
-      "attackSpeed": 0.0,
+      "attackSpeed": 0.36,
       "effects": {
         "armor": 1.0,
-        "toughness": 0.0
+        "toughness": 0.36
       },
       "glyph": {
         "tint": "phantom_glyph",
@@ -117,7 +117,7 @@
     },
     {
       "key": "armor/helmet/binding/bolt",
-      "durability": 77.09625,
+      "durability": 74.75999999981309,
       "integrity": -0.1,
       "damage": 1.0,
       "attackSpeed": 0.36,
