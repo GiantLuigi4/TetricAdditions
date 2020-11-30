@@ -62,9 +62,9 @@ public class MaterialTier {
 						"      \"integrity\": " + (Math.ceil(chestplateIntegrity * multipliers[part] * scalar) * (loseIntegrity ? -integrityLose : 1)) + ",\n" +
 						"      \"damage\": " + (useToughness ? (baseProvidesToughness ? (2 * scalar * multipliers[part]) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar))) + ",\n" +
 						"      \"attackSpeed\": " + (!useToughness ? (baseProvidesToughness ? (2 * scalar) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar * multipliers[part]))) + ",\n" +
-						"      \"effects\": {" +
-						"        \"armor\": " + (useToughness ? (baseProvidesToughness ? (2 * scalar * multipliers[part]) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar))) + "," +
-						"        \"toughness\": " + (!useToughness ? (baseProvidesToughness ? (2 * scalar) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar * multipliers[part]))) + "" +
+						"      \"effects\": {\n" +
+						"        \"armor\": " + (useToughness ? (baseProvidesToughness ? (2 * scalar * multipliers[part]) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar))) + ",\n" +
+						"        \"toughness\": " + (!useToughness ? (baseProvidesToughness ? (2 * scalar) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar * multipliers[part]))) + "\n" +
 						"      },\n" +
 						"      \"glyph\": {\n" +
 						"        \"tint\": \"" + tint + "_glyph\",\n" +

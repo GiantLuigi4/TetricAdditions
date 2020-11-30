@@ -104,7 +104,7 @@
         "toughness": 0.0
       },
       "glyph": {
-        "tint": "special_glyph",
+        "tint": "phantom_glyph",
         "textureX": 88,
         "textureY": 16
       },
