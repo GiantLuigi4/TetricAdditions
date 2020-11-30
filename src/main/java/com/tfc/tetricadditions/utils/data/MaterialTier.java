@@ -1,4 +1,4 @@
-package com.tfc.tetricadditions.data;
+package com.tfc.tetricadditions.utils.data;
 
 public class MaterialTier {
 	private static final double[] multipliers = new double[]{
@@ -62,6 +62,10 @@ public class MaterialTier {
 						"      \"integrity\": " + (Math.ceil(chestplateIntegrity * multipliers[part] * scalar) * (loseIntegrity ? -integrityLose : 1)) + ",\n" +
 						"      \"damage\": " + (useToughness ? (baseProvidesToughness ? (2 * scalar * multipliers[part]) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar))) + ",\n" +
 						"      \"attackSpeed\": " + (!useToughness ? (baseProvidesToughness ? (2 * scalar) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar * multipliers[part]))) + ",\n" +
+						"      \"effects\": {" +
+						"        \"armor\": " + (useToughness ? (baseProvidesToughness ? (2 * scalar * multipliers[part]) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar))) + "," +
+						"        \"toughness\": " + (!useToughness ? (baseProvidesToughness ? (2 * scalar) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar * multipliers[part]))) + "" +
+						"      },\n" +
 						"      \"glyph\": {\n" +
 						"        \"tint\": \"" + tint + "_glyph\",\n" +
 						"        \"textureX\": 88,\n" +
@@ -90,5 +94,19 @@ public class MaterialTier {
 						"      \"moduleKey\": \"" + type + "\",\n" +
 						"      \"moduleVariant\": \"" + type + "/" + key + "\"\n" +
 						"    }").replace("%type%", type.substring(type.lastIndexOf("/") + 1));
+	}
+	
+	public String toStringSchemaDye(String type, int part, String dye, int color) {
+		return
+				"\n" +
+						"        {\n" +
+						"            \"material\": {\n" +
+						"                \"item\": \"" + dye + "\"\n" +
+						"            },\n" +
+						"            \"moduleKey\": \"" + type + "_dye\",\n" +
+						"            \"moduleVariant\": \"" + type + "_dye/" + dye + "/" + color + "\"\n" +
+						"        }"
+								.replace("%type%", type.substring(type.lastIndexOf("/") + 1))
+								.replace("%part%", pieces[part]);
 	}
 }

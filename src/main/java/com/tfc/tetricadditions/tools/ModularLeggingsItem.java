@@ -25,16 +25,23 @@ import se.mickelus.tetra.module.schema.RepairSchema;
 
 import javax.annotation.Nullable;
 
-public class ModularChestplateItem extends ModularArmorItem {
-	public static final String unlocalizedName = "modular_chestplate";
+public class ModularLeggingsItem extends ModularArmorItem {
+	public static final String unlocalizedName = "modular_leggings";
 	
-	public static final String bootPieceKey = "armor/chestplate/base";
+	public static final String bootPieceKey = "armor/leggings/base";
 	
-	public ModularChestplateItem(Properties properties) {
-		super(properties, EquipmentSlotType.CHEST);
+	public ModularLeggingsItem(Properties properties) {
+		super(properties, EquipmentSlotType.LEGS);
 		
 		majorModuleKeys = new String[]{bootPieceKey.replace("%piece%", getPieceName()), plate1Key.replace("%piece%", getPieceName())};
-		minorModuleKeys = new String[]{plate2Key.replace("%piece%", getPieceName()), bindingKey.replace("%piece%", getPieceName()), socketKey.replace("%piece%", getPieceName())};
+		minorModuleKeys = new String[]{
+				plate2Key.replace("%piece%", getPieceName()),
+				bindingKey.replace("%piece%", getPieceName()),
+				socketKey.replace("%piece%", getPieceName()),
+//				plate2Key.replace("%piece%", getPieceName())+"_dye",
+//				bindingKey.replace("%piece%", getPieceName())+"_dye",
+//				socketKey.replace("%piece%", getPieceName())+"_dye"
+		};
 		
 		requiredModules = new String[]{bootPieceKey.replace("%piece%", getPieceName())};
 		
@@ -56,7 +63,7 @@ public class ModularChestplateItem extends ModularArmorItem {
 				Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(registryName));
 				return item.getName().appendText(" Helmet");
 			} else {
-				String name = module.getName(itemStack).substring("armor/chestplate/base/armor/base/arm".length());
+				String name = module.getName(itemStack).substring("armor/leggings/base/armor/leggings/ba".length());
 				
 				if (name.equals("gold"))
 					name += "en";
@@ -64,9 +71,9 @@ public class ModularChestplateItem extends ModularArmorItem {
 				name = name.toUpperCase().substring(0, 1) + name.substring(1);
 				
 				if (name.contains("Leather"))
-					return new StringTextComponent(name + " Tunic");
+					return new StringTextComponent(name + " Pants");
 				
-				return new StringTextComponent(name + " Chestplate");
+				return new StringTextComponent(name + " Leggings");
 			}
 		}
 		return super.getDisplayName(itemStack);
@@ -95,7 +102,7 @@ public class ModularChestplateItem extends ModularArmorItem {
 				if (models[models.length - 1] != null) {
 					String key = models[0].location.toString();
 					IVertexBuilder builder;
-					if (key.equals("tetric_additions:items/module/armor/chestplate/special/cactus_base")) {
+					if (key.equals("tetric_additions:items/module/armor/leggings/special/cactus_base")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -103,7 +110,7 @@ public class ModularChestplateItem extends ModularArmorItem {
 										)
 								)
 						);
-					} else if (key.equals("tetric_additions:items/module/armor/chestplate/special/prismarine_base")) {
+					} else if (key.equals("tetric_additions:items/module/armor/leggings/special/prismarine_base")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -125,15 +132,11 @@ public class ModularChestplateItem extends ModularArmorItem {
 					float f1 = (float) (i >> 8 & 255) / 255.0F;
 					float f2 = (float) (i & 255) / 255.0F;
 					BipedModel model = RendererCache.getModelForEntity(entity);
-					model.bipedBody.render(
+					model.bipedLeftLeg.render(
 							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
 							f, f1, f2, 1
 					);
-					model.bipedRightArm.render(
-							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
-							f, f1, f2, 1
-					);
-					model.bipedLeftArm.render(
+					model.bipedRightLeg.render(
 							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
 							f, f1, f2, 1
 					);
@@ -147,7 +150,7 @@ public class ModularChestplateItem extends ModularArmorItem {
 				if (models[models.length - 1] != null) {
 					String key = models[0].location.toString();
 					IVertexBuilder builder;
-					if (key.equals("tetric_additions:items/module/armor/chestplate/special/cactus_plate1")) {
+					if (key.equals("tetric_additions:items/module/armor/leggings/special/cactus_plate1")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -155,7 +158,7 @@ public class ModularChestplateItem extends ModularArmorItem {
 										)
 								)
 						);
-					} else if (key.equals("tetric_additions:items/module/armor/chestplate/special/prismarine_plate1")) {
+					} else if (key.equals("tetric_additions:items/module/armor/leggings/special/prismarine_plate1")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -178,15 +181,11 @@ public class ModularChestplateItem extends ModularArmorItem {
 					float f2 = (float) (i & 255) / 255.0F;
 					BipedModel model = RendererCache.getModelForEntity(entity);
 					matrixStack.push();
-					model.bipedBody.render(
+					model.bipedLeftLeg.render(
 							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
 							f, f1, f2, 1
 					);
-					model.bipedRightArm.render(
-							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
-							f, f1, f2, 1
-					);
-					model.bipedLeftArm.render(
+					model.bipedRightLeg.render(
 							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
 							f, f1, f2, 1
 					);
@@ -201,7 +200,7 @@ public class ModularChestplateItem extends ModularArmorItem {
 				if (models[models.length - 1] != null) {
 					String key = models[0].location.toString();
 					IVertexBuilder builder;
-					if (key.equals("tetric_additions:items/module/armor/chestplate/special/cactus_plate2")) {
+					if (key.equals("tetric_additions:items/module/armor/leggings/special/cactus_plate2")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -209,7 +208,7 @@ public class ModularChestplateItem extends ModularArmorItem {
 										)
 								)
 						);
-					} else if (key.equals("tetric_additions:items/module/armor/chestplate/special/prismarine_plate2")) {
+					} else if (key.equals("tetric_additions:items/module/armor/leggings/special/prismarine_plate2")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
@@ -233,15 +232,11 @@ public class ModularChestplateItem extends ModularArmorItem {
 					BipedModel model = RendererCache.getModelForEntity(entity);
 					matrixStack.push();
 //					matrixStack.scale(1.01f, 1.01f, 1.01f);
-					model.bipedBody.render(
+					model.bipedLeftLeg.render(
 							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
 							f, f1, f2, 1
 					);
-					model.bipedRightArm.render(
-							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
-							f, f1, f2, 1
-					);
-					model.bipedLeftArm.render(
+					model.bipedRightLeg.render(
 							matrixStack, builder, packedLightIn, OverlayTexture.NO_OVERLAY,
 							f, f1, f2, 1
 					);

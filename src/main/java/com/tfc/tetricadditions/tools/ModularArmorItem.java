@@ -20,6 +20,7 @@ import se.mickelus.tetra.items.modular.ModularItem;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.UUID;
 
 public class ModularArmorItem extends ModularItem {
@@ -57,7 +58,7 @@ public class ModularArmorItem extends ModularItem {
 	public final String getPieceName() {
 		switch (slot) {
 			case CHEST:
-				return "chest";
+				return "chestplate";
 			case FEET:
 				return "boots";
 			case LEGS:
@@ -212,6 +213,14 @@ public class ModularArmorItem extends ModularItem {
 	};
 	
 	@Override
+	public void tweak(ItemStack itemStack, String slot, Map<String, Integer> tweaks) {
+		super.tweak(itemStack, slot, tweaks);
+		
+		System.out.println(slot);
+//		((ModularArmorItem)itemStack.getItem()).getSpeedModifier(itemStack)
+	}
+	
+	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot, ItemStack stack) {
 		Multimap<String, AttributeModifier> modifiers = super.getAttributeModifiers(slot, stack);
 		if (!this.isBroken(stack) && slot == EquipmentSlotType.HEAD) {
@@ -221,7 +230,7 @@ public class ModularArmorItem extends ModularItem {
 					SharedMonsterAttributes.ARMOR.getName(),
 					new AttributeModifier(
 							ARMOR_MODIFIERS[slot.getIndex()],
-							"generic.armor",
+							"tetra.armor_mod",
 							armorModifier,
 							AttributeModifier.Operation.ADDITION
 					)
@@ -241,16 +250,15 @@ public class ModularArmorItem extends ModularItem {
 	}
 	
 	public double getSpeedModifier(ItemStack itemStack) {
-		double speedModifier = this.getAllModules(itemStack).stream().map((itemModule) -> itemModule.getSpeedModifier(itemStack)).reduce(0d, Double::sum);
-		speedModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> (double) synergyData.attackSpeed).reduce(speedModifier, Double::sum);
-		speedModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> (double) synergyData.attackSpeedMultiplier).reduce(speedModifier, (a, b) -> a * b);
-		speedModifier = this.getAllModules(itemStack).stream().map((itemModule) -> itemModule.getSpeedMultiplierModifier(itemStack)).reduce(speedModifier, (a, b) -> a * b);
-//		speedModifier *= this.getCounterWeightMultiplier(itemStack);
-//		if (speedModifier < -4.0D) {
-//			speedModifier = -3.9D;
-//		}
-		
-		return speedModifier;
+		if (this.isBroken(itemStack)) {
+			return 0.0D;
+		} else {
+			double speedModifier = this.getAllModules(itemStack).stream().map((itemModule) -> itemModule.getSpeedModifier(itemStack)).reduce(0d, Double::sum);
+			speedModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> (double) synergyData.attackSpeed).reduce(speedModifier, Double::sum);
+			speedModifier = Arrays.stream(this.getSynergyData(itemStack)).mapToDouble((synergyData) -> (double) synergyData.attackSpeedMultiplier).reduce(speedModifier, (a, b) -> a * b);
+			speedModifier = this.getAllModules(itemStack).stream().map((itemModule) -> itemModule.getSpeedMultiplierModifier(itemStack)).reduce(speedModifier, (a, b) -> a * b);
+			return speedModifier;
+		}
 	}
 	
 	public double getDamageModifier(ItemStack itemStack) {

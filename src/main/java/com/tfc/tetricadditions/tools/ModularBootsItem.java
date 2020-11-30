@@ -34,7 +34,14 @@ public class ModularBootsItem extends ModularArmorItem {
 		super(properties, EquipmentSlotType.FEET);
 		
 		majorModuleKeys = new String[]{bootPieceKey.replace("%piece%", getPieceName()), plate1Key.replace("%piece%", getPieceName())};
-		minorModuleKeys = new String[]{plate2Key.replace("%piece%", getPieceName()), bindingKey.replace("%piece%", getPieceName()), socketKey.replace("%piece%", getPieceName())};
+		minorModuleKeys = new String[]{
+				plate2Key.replace("%piece%", getPieceName()),
+				bindingKey.replace("%piece%", getPieceName()),
+				socketKey.replace("%piece%", getPieceName()),
+//				plate2Key.replace("%piece%", getPieceName())+"_dye",
+//				bindingKey.replace("%piece%", getPieceName())+"_dye",
+//				socketKey.replace("%piece%", getPieceName())+"_dye"
+		};
 		
 		requiredModules = new String[]{bootPieceKey.replace("%piece%", getPieceName())};
 		
@@ -57,10 +64,12 @@ public class ModularBootsItem extends ModularArmorItem {
 				return item.getName().appendText(" Helmet");
 			} else {
 				String name = module.getName(itemStack).substring("armor/boots/base/armor/boots/ba".length());
-				if (name.equals("gold")) {
+				
+				if (name.equals("gold"))
 					name += "en";
-				}
+				
 				name = name.toUpperCase().substring(0, 1) + name.substring(1);
+				
 				return new StringTextComponent(name + " Boots");
 			}
 		}
@@ -138,11 +147,11 @@ public class ModularBootsItem extends ModularArmorItem {
 				if (models[models.length - 1] != null) {
 					String key = models[0].location.toString();
 					IVertexBuilder builder;
-					if (key.equals("tetric_additions:items/module/armor/helmet/special/cactus_plate1")) {
+					if (key.equals("tetric_additions:items/module/armor/boots/special/cactus_plate1")) {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/cactus.png"
+												"tetric_additions:textures/models/armor/cactus_layer_2.png"
 										)
 								)
 						);
@@ -150,7 +159,7 @@ public class ModularBootsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/prismarine.png"
+												"tetric_additions:textures/models/armor/prismarine_layer_2.png"
 										)
 								)
 						);

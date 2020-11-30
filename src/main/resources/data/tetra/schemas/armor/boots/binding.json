@@ -56,6 +56,17 @@
     },
     {
       "material": {
+        "item": "minecraft:phantom_membrane",
+        "count": 1
+      },
+      "requiredCapabilities": {
+        "cutting": 2
+      },
+      "moduleKey": "armor/boots/binding",
+      "moduleVariant": "armor/boots/binding/phantom"
+    },
+    {
+      "material": {
         "item": "tetra:forged_bolt",
         "count": 1
       },

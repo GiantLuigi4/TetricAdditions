@@ -11,7 +11,21 @@ public class RendererCache {
 	public static final PlayerModel<PlayerEntity> playerModel = new PlayerModel<>(1, false);
 	public static final SkeletonModel<SkeletonEntity> skeletonModel = new SkeletonModel<>(1, false);
 	public static final ZombieModel<ZombieEntity> zombieModel = new ZombieModel<>(1, false);
-	public static final ArmorStandArmorModel armorStandModel = new ArmorStandArmorModel(1);
+	public static final ArmorStandArmorModel armorStandModel = new ArmorStandArmorModel(1, 64, 64);
+	
+	static {
+		playerModel.textureWidth = 64;
+		playerModel.textureHeight = 64;
+		
+		skeletonModel.textureWidth = 32;
+		skeletonModel.textureHeight = 64;
+		
+		zombieModel.textureWidth = 64;
+		zombieModel.textureHeight = 64;
+		
+		armorStandModel.textureWidth = 32;
+		armorStandModel.textureHeight = 64;
+	}
 	
 	public static BipedModel<?> getModelForEntity(LivingEntity entity) {
 		if (entity == null) return null;
@@ -23,7 +37,7 @@ public class RendererCache {
 		else if (entity instanceof ZombieEntity)
 			model = RendererCache.zombieModel;
 		else if (entity instanceof ArmorStandEntity)
-			model = RendererCache.playerModel;
+			model = RendererCache.armorStandModel;
 		return model;
 	}
 }

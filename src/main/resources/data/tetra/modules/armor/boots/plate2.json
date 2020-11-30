@@ -11,15 +11,21 @@
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.4,
+      "effects": {
+        "armor": 1.0,
+        "toughness": 0.4
+      },
       "glyph": {
         "tint": "diamond_glyph",
         "textureX": 88,
         "textureY": 16
       },
-      "models": [{
-        "location": "tetric_additions:items/module/armor/boots/plate2",
-        "tint": "diamond"
-      }]
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/boots/plate2",
+          "tint": "diamond"
+        }
+      ]
     },
     {
       "key": "armor/boots/plate2/iron",
@@ -27,6 +33,10 @@
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
+      "effects": {
+        "armor": 1.0,
+        "toughness": 0.0
+      },
       "glyph": {
         "tint": "iron_glyph",
         "textureX": 88,
@@ -36,7 +46,8 @@
         {
           "location": "tetric_additions:items/module/armor/boots/plate2",
           "tint": "iron"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/boots/plate2/gold",
@@ -44,6 +55,10 @@
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
+      "effects": {
+        "armor": 1.0,
+        "toughness": 0.0
+      },
       "glyph": {
         "tint": "gold_glyph",
         "textureX": 88,
@@ -53,7 +68,8 @@
         {
           "location": "tetric_additions:items/module/armor/boots/plate2",
           "tint": "gold"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/boots/plate2/leather",
@@ -61,6 +77,10 @@
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
+      "effects": {
+        "armor": 1.0,
+        "toughness": 0.0
+      },
       "glyph": {
         "tint": "leather_glyph",
         "textureX": 88,
@@ -70,7 +90,8 @@
         {
           "location": "tetric_additions:items/module/armor/boots/plate2",
           "tint": "leather"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/boots/plate2/hide",
@@ -78,6 +99,10 @@
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
+      "effects": {
+        "armor": 1.0,
+        "toughness": 0.0
+      },
       "glyph": {
         "tint": "hide_glyph",
         "textureX": 88,
@@ -87,7 +112,8 @@
         {
           "location": "tetric_additions:items/module/armor/boots/plate2",
           "tint": "hide"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/boots/plate2/cactus",
@@ -95,6 +121,10 @@
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
+      "effects": {
+        "armor": 1.0,
+        "toughness": 0.0
+      },
       "glyph": {
         "tint": "vine_glyph",
         "textureX": 88,
@@ -104,7 +134,8 @@
         {
           "location": "tetric_additions:items/module/armor/boots/special/cactus_plate2",
           "tint": "string"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/boots/plate2/prismarine",
@@ -112,6 +143,10 @@
       "integrity": -0.2,
       "damage": 1.0,
       "attackSpeed": 0.0,
+      "effects": {
+        "armor": 1.0,
+        "toughness": 0.0
+      },
       "glyph": {
         "tint": "prismarine_glyph",
         "textureX": 88,
@@ -121,7 +156,8 @@
         {
           "location": "tetric_additions:items/module/armor/boots/special/prismarine_plate2",
           "tint": "string"
-        }]
+        }
+      ]
     }
   ]
 }

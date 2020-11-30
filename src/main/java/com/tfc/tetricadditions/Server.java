@@ -12,36 +12,39 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Server {
 	public static void onEntityDamaged(LivingDamageEvent event) {
-		if (!event.getSource().damageType.equals("thorns")) {
-			if (event.getSource().getTrueSource() instanceof LivingEntity) {
-				AtomicInteger totalThorns = new AtomicInteger();
-				event.getEntity().getArmorInventoryList().iterator().forEachRemaining((stack) -> {
-					if (stack.getItem() instanceof ModularArmorItem) {
-						ModularArmorItem armor = (ModularArmorItem) stack.getItem();
-						armor.tickHoningProgression(event.getEntityLiving(), stack, (int) Math.ceil(event.getAmount() / 16f));
-						if (!armor.isBroken(stack)) {
-							for (String key : armor.getMajorModuleKeys()) {
-								ItemModule major = armor.getModuleFromSlot(stack, key);
-								if (major != null) {
-									if (major.getName(stack).contains("cactus")) totalThorns.getAndAdd(3);
-									else if (major.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+		if (!event.getEntityLiving().world.isRemote) {
+			if (!event.getSource().damageType.equals("thorns")) {
+				if (event.getSource().getTrueSource() instanceof LivingEntity) {
+					AtomicInteger totalThorns = new AtomicInteger();
+					event.getEntity().getArmorInventoryList().iterator().forEachRemaining((stack) -> {
+						if (stack.getItem() instanceof ModularArmorItem) {
+							ModularArmorItem armor = (ModularArmorItem) stack.getItem();
+							armor.tickHoningProgression(event.getEntityLiving(), stack, (int) Math.ceil(event.getAmount() / 16f));
+							if (!armor.isBroken(stack)) {
+								for (String key : armor.getMajorModuleKeys()) {
+									ItemModule major = armor.getModuleFromSlot(stack, key);
+									if (major != null) {
+										if (major.getName(stack).contains("cactus")) totalThorns.getAndAdd(3);
+										else if (major.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+									}
 								}
-							}
-							for (ItemModule minor : armor.getMinorModules(stack)) {
-								if (minor != null) {
-									if (minor.getName(stack).contains("cactus")) totalThorns.getAndAdd(2);
-									else if (minor.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+								for (ItemModule minor : armor.getMinorModules(stack)) {
+									if (minor != null) {
+										if (minor.getName(stack).contains("cactus")) totalThorns.getAndAdd(2);
+										else if (minor.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+									}
 								}
 							}
 						}
+					});
+					if (totalThorns.get() != 0) {
+						event.getSource().getTrueSource().attackEntityFrom(DamageSource.causeThornsDamage(event.getEntity()),
+								Math.min(30, totalThorns.get() * (Math.max(0, event.getAmount()) / 3f))
+						);
 					}
-				});
-				if (totalThorns.get() != 0) {
-					event.getSource().getTrueSource().attackEntityFrom(DamageSource.causeThornsDamage(event.getEntity()),
-							Math.min(30, totalThorns.get() * (Math.max(0, event.getAmount()) / 3f))
-					);
 				}
 			}
+			
 		}
 		event.getEntity().getArmorInventoryList().iterator().forEachRemaining((stack) -> {
 			if (event.getSource().getImmediateSource() != null || event.getSource().getTrueSource() != null) {
@@ -70,5 +73,8 @@ public class Server {
 				}
 			}
 		});
+		if (event.getEntityLiving().getTags().contains("NoIFrames")) {
+			event.getEntityLiving().hurtResistantTime = 0;
+		}
 	}
 }

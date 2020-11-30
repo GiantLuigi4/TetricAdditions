@@ -210,15 +210,16 @@ public class ModularHelmetItem extends ModularArmorItem {
 				return item.getName().appendText(" Helmet");
 			} else {
 				String name = module.getName(itemStack).substring("armor/helmet/base/armor/helmet/b".length());
-				if (name.equals("gold")) {
+				
+				if (name.equals("gold"))
 					name += "en";
-				}
+				
 				name = name.toUpperCase().substring(0, 1) + name.substring(1);
-				if (name.equals("Leather")) {
+				
+				if (name.equals("Leather"))
 					return new StringTextComponent(name + " Cap");
-				} else {
-					return new StringTextComponent(name + " Helmet");
-				}
+				
+				return new StringTextComponent(name + " Helmet");
 			}
 		}
 		return super.getDisplayName(itemStack);

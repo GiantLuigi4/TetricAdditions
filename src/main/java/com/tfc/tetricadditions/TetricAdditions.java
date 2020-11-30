@@ -1,6 +1,8 @@
 package com.tfc.tetricadditions;
 
+import com.tfc.tetricadditions.modules.DyableArmorModule;
 import com.tfc.tetricadditions.tools.ModularBootsItem;
+import com.tfc.tetricadditions.tools.ModularChestplateItem;
 import com.tfc.tetricadditions.tools.ModularHelmetItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.AtlasTexture;
@@ -17,6 +19,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import se.mickelus.tetra.blocks.forged.container.ForgedContainerTESR;
 import se.mickelus.tetra.items.TetraItemGroup;
+import se.mickelus.tetra.module.ModuleRegistry;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("tetric_additions")
@@ -72,12 +75,12 @@ public class TetricAdditions {
 //		System.out.println("Done listing Schemas");
 
 //		se.mickelus.tetra.data.MergingDataStore
-
-//		ModuleRegistry moduleRegistry = ModuleRegistry.instance;
-//		moduleRegistry.registerModuleType(
-//				new ResourceLocation("tetric_additions","armor_binding"),
-//				BasicArmorModule::new
-//		);
+		
+		ModuleRegistry moduleRegistry = ModuleRegistry.instance;
+		moduleRegistry.registerModuleType(
+				new ResourceLocation("tetric_additions", "armor_module"),
+				DyableArmorModule::new
+		);
 //		SchemaRegistry.instance.registerSchema(
 //				new UpgradeSchema() {
 //					@Override
@@ -181,7 +184,8 @@ public class TetricAdditions {
 	public static void registerItems(RegistryEvent.Register<Item> itemRegistryEvent) {
 		itemRegistryEvent.getRegistry().registerAll(
 				new ModularHelmetItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1)),
-				new ModularBootsItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1))
+				new ModularBootsItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1)),
+				new ModularChestplateItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1))
 		);
 	}
 }

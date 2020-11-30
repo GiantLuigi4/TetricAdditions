@@ -11,15 +11,21 @@
       "integrity": -2.0,
       "damage": 0.75,
       "attackSpeed": 3.0,
+      "effects": {
+        "armor": 0.75,
+        "toughness": 3.0
+      },
       "glyph": {
         "tint": "diamond_glyph",
         "textureX": 88,
         "textureY": 16
       },
-      "models": [{
-        "location": "tetric_additions:items/module/armor/leggings/plate1",
-        "tint": "diamond"
-      }]
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/leggings/plate1",
+          "tint": "diamond"
+        }
+      ]
     },
     {
       "key": "armor/leggings/plate1/iron",
@@ -27,6 +33,10 @@
       "integrity": -1.0,
       "damage": 0.0,
       "attackSpeed": 2.0,
+      "effects": {
+        "armor": 0.0,
+        "toughness": 2.0
+      },
       "glyph": {
         "tint": "iron_glyph",
         "textureX": 88,
@@ -36,7 +46,8 @@
         {
           "location": "tetric_additions:items/module/armor/leggings/plate1",
           "tint": "iron"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/leggings/plate1/gold",
@@ -44,6 +55,10 @@
       "integrity": -1.0,
       "damage": 0.0,
       "attackSpeed": 2.0,
+      "effects": {
+        "armor": 0.0,
+        "toughness": 2.0
+      },
       "glyph": {
         "tint": "gold_glyph",
         "textureX": 88,
@@ -53,7 +68,8 @@
         {
           "location": "tetric_additions:items/module/armor/leggings/plate1",
           "tint": "gold"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/leggings/plate1/leather",
@@ -61,6 +77,10 @@
       "integrity": -1.0,
       "damage": 0.0,
       "attackSpeed": 1.0,
+      "effects": {
+        "armor": 0.0,
+        "toughness": 1.0
+      },
       "glyph": {
         "tint": "leather_glyph",
         "textureX": 88,
@@ -70,7 +90,8 @@
         {
           "location": "tetric_additions:items/module/armor/leggings/plate1",
           "tint": "leather"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/leggings/plate1/hide",
@@ -78,6 +99,10 @@
       "integrity": -1.0,
       "damage": 0.0,
       "attackSpeed": 2.0,
+      "effects": {
+        "armor": 0.0,
+        "toughness": 2.0
+      },
       "glyph": {
         "tint": "hide_glyph",
         "textureX": 88,
@@ -87,7 +112,8 @@
         {
           "location": "tetric_additions:items/module/armor/leggings/plate1",
           "tint": "hide"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/leggings/plate1/cactus",
@@ -95,6 +121,10 @@
       "integrity": -0.5,
       "damage": 0.0,
       "attackSpeed": 1.0,
+      "effects": {
+        "armor": 0.0,
+        "toughness": 1.0
+      },
       "glyph": {
         "tint": "vine_glyph",
         "textureX": 88,
@@ -104,7 +134,8 @@
         {
           "location": "tetric_additions:items/module/armor/leggings/special/cactus_plate1",
           "tint": "string"
-        }]
+        }
+      ]
     },
     {
       "key": "armor/leggings/plate1/prismarine",
@@ -112,6 +143,10 @@
       "integrity": -1.0,
       "damage": 0.0,
       "attackSpeed": 2.0,
+      "effects": {
+        "armor": 0.0,
+        "toughness": 2.0
+      },
       "glyph": {
         "tint": "prismarine_glyph",
         "textureX": 88,
@@ -121,7 +156,8 @@
         {
           "location": "tetric_additions:items/module/armor/leggings/special/prismarine_plate1",
           "tint": "string"
-        }]
+        }
+      ]
     }
   ]
 }
