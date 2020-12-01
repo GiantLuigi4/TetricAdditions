@@ -1,0 +1,31 @@
+name is "minecraft:rabbit_hide"
+tint is hide
+useTint is false
+
+neededCapabilities are
+ cutting:2
+
+overrides are
+# helmet values
+ integrity_helmet:1.0
+ durability_helmet:39.9999999999
+ armor_helmet:2.0
+ toughness_helmet:0.0
+
+# chestplate values
+ integrity_chestplate:3.0
+ durability_chestplate:60.0
+ armor_chestplate:4.0
+ toughness_chestplate:0.0
+
+# leggings values
+ integrity_leggings:3.0
+ durability_leggings:52.5
+ armor_leggings:3.0
+ toughness_leggings:0.0
+
+# boots values
+ integrity_boots:1.0
+ durability_boots:39.9999999999
+ armor_boots:2.0
+ toughness_boots:0.0

@@ -1,0 +1,20 @@
+#the ResourceLocation of the module
+name is "tetra:modules/armor/%piece%/binding"
+
+#the key for the model
+key is binding
+
+#the scale for the stats
+scale is 0.18
+
+#makes it decrease the integrity value
+decreasesIntegrity is false
+
+#Materials which are applicable to this piece
+valid materials are
+ minecraft:leather
+ minecraft:rabbit_hide
+ minecraft:string
+ minecraft:vine
+ minecraft:phantom_membrane/alt
+ tetra:forged_bolt

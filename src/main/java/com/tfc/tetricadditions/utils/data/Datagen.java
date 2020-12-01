@@ -79,57 +79,82 @@ public class Datagen {
 	};
 	
 	public static void main(String[] args) {
-		for (String[] type : types) {
-			String typeStr = type[0];
-			int startIndex = 8;
-			
-			int armorPart = Integer.parseInt(type[7]);
-			
-			//Datagen Modules
-			String module = "{\n" +
-					"  \"replace\": false,\n" +
-					"  \"slots\": [\"" + typeStr + "\"],\n" +
-					"  \"type\": \"tetra:basic_module\",\n" +
-					"  \"renderLayer\": \"highest\",\n" +
-					"  \"tweakKey\": \"tetra:" + typeStr + "\",\n" +
-					"  \"variants\": [";
-			for (int material = startIndex; material < type.length; material++) {
-				module += "\n" + getTier(type[material])
-						.toStringModule(
-								Double.parseDouble(type[1]),
-								Double.parseDouble(type[2]),
-								Boolean.parseBoolean(type[3]),
-								Boolean.parseBoolean(type[4]),
-								typeStr,
-								armorPart
-						);
-				if (material != type.length - 1)
-					module += ",";
-			}
-			module += "\n  ]\n}";
-			writeFile("src/main/resources/data/tetra/modules/" + type[0] + ".json", module);
-			
-			//Datagen Schemas
-			String schema = "{\n" +
-					"  \"replace\": false,\n" +
-					"  \"slots\": [\n" +
-					"    \"" + typeStr + "\"\n" +
-					"  ],\n" +
-					"  \"materialSlotCount\": 1,\n" +
-					"  \"displayType\": \"major\",\n" +
-					"  \"glyph\": {\n" +
-					"    \"textureX\": " + type[5] + ",\n" +
-					"    \"textureY\": " + type[6] + "\n" +
-					"  },\n" +
-					"  \"outcomes\": [";
-			for (int material = startIndex; material < type.length; material++) {
-				schema += "\n" + getTier(type[material]).toStringSchema(Double.parseDouble(type[1]), Double.parseDouble(type[2]), Boolean.parseBoolean(type[3]), typeStr, armorPart);
-				if (material != type.length - 1)
-					schema += ",";
-			}
-			schema += "\n  ]\n}";
+		boolean isGeningJsons = false;
+		if (isGeningJsons) {
+			for (String[] type : types) {
+				String typeStr = type[0];
+				int startIndex = 8;
+				
+				int armorPart = Integer.parseInt(type[7]);
+				
+				//Datagen Modules
+				String module = "{\n" +
+						"  \"replace\": false,\n" +
+						"  \"slots\": [\"" + typeStr + "\"],\n" +
+						"  \"type\": \"tetra:basic_module\",\n" +
+						"  \"renderLayer\": \"highest\",\n" +
+						"  \"tweakKey\": \"tetra:" + typeStr + "\",\n" +
+						"  \"variants\": [";
+				for (int material = startIndex; material < type.length; material++) {
+					module += "\n" + getTier(type[material])
+							.toStringModule(
+									Double.parseDouble(type[1]),
+									Double.parseDouble(type[2]),
+									Boolean.parseBoolean(type[3]),
+									Boolean.parseBoolean(type[4]),
+									typeStr,
+									armorPart
+							);
+					if (material != type.length - 1)
+						module += ",";
+				}
+				module += "\n  ]\n}";
+				writeFile("src/main/resources/data/tetra/modules/" + type[0] + ".json", module);
+				
+				//Datagen Schemas
+				String schema = "{\n" +
+						"  \"replace\": false,\n" +
+						"  \"slots\": [\n" +
+						"    \"" + typeStr + "\"\n" +
+						"  ],\n" +
+						"  \"materialSlotCount\": 1,\n" +
+						"  \"displayType\": \"major\",\n" +
+						"  \"glyph\": {\n" +
+						"    \"textureX\": " + type[5] + ",\n" +
+						"    \"textureY\": " + type[6] + "\n" +
+						"  },\n" +
+						"  \"outcomes\": [";
+				for (int material = startIndex; material < type.length; material++) {
+					schema += "\n" + getTier(type[material]).toStringSchema(Double.parseDouble(type[1]), Double.parseDouble(type[2]), Boolean.parseBoolean(type[3]), typeStr, armorPart);
+					if (material != type.length - 1)
+						schema += ",";
+				}
+				schema += "\n  ]\n}";
 //			System.out.println(schema);
-			writeFile("src/main/resources/data/tetra/schemas/" + type[0] + ".json", schema);
+				writeFile("src/main/resources/data/tetra/schemas/" + type[0] + ".json", schema);
+			}
+		} else {
+			for (MaterialTier tier : tiers) {
+				String prop = "name is \"" + tier.name + "\"\n" +
+						"\n" +
+						"overrides are";
+				for (int i = 0; i < 4; i++) {
+					prop += tier.toMatTprop(
+							1, 0, false, false, "", i
+					);
+				}
+//				System.out.println(prop);
+//				System.out.println();
+//				System.out.println();
+				
+				File f = new File("src/main/resources/data/tetric_additions/materials/generated/" + tier.key + ".tproperties");
+				File f1 = new File("src/main/resources/data/tetric_additions/materials/" + tier.key + ".tproperties");
+				if (!f.exists() && !f1.exists()) {
+					writeFile(f.toString(), prop);
+				} else {
+					System.out.println(prop);
+				}
+			}
 		}
 	}
 	

@@ -1,0 +1,31 @@
+name is "tetra:forged_bolt"
+model key is special/bolt_%key%
+tint is bolt
+
+neededCapabilities are
+ hammer:4
+
+overrides are
+# helmet values
+ integrity_helmet:2.0
+ durability_helmet:415.33333333229496
+ armor_helmet:2.0
+ toughness_helmet:2.0
+
+# chestplate values
+ integrity_chestplate:5.0
+ durability_chestplate:623.0
+ armor_chestplate:4.0
+ toughness_chestplate:2.0
+
+# leggings values
+ integrity_leggings:4.0
+ durability_leggings:545.125
+ armor_leggings:3.0
+ toughness_leggings:2.0
+
+# boots values
+ integrity_boots:2.0
+ durability_boots:415.33333333229496
+ armor_boots:2.0
+ toughness_boots:2.0

@@ -1,0 +1,11 @@
+name is "minecraft:diamond"
+parent for %piece% is minecraft:diamond_%piece%
+
+neededCapabilities are
+ hammer:3
+
+overrides are
+ integrity_helmet:4.0
+ integrity_chestplate:10.0
+ integrity_leggings:8.0
+ integrity_boots:4.0

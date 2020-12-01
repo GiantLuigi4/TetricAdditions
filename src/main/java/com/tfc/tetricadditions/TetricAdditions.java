@@ -4,6 +4,7 @@ import com.tfc.tetricadditions.modules.DyableArmorModule;
 import com.tfc.tetricadditions.tools.ModularBootsItem;
 import com.tfc.tetricadditions.tools.ModularChestplateItem;
 import com.tfc.tetricadditions.tools.ModularHelmetItem;
+import com.tfc.tetricadditions.utils.data.TetricAdditionsDataLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.item.Item;
@@ -43,6 +44,7 @@ public class TetricAdditions {
 			);
 		}
 		MinecraftForge.EVENT_BUS.addListener(Server::onEntityDamaged);
+		MinecraftForge.EVENT_BUS.addListener(TetricAdditionsDataLoader::register);
 	}
 	
 	public static void provideTextures(TextureStitchEvent.Pre event) {

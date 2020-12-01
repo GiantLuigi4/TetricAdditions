@@ -1,0 +1,14 @@
+name is "minecraft:gold_ingot"
+parent for %piece% is minecraft:golden_%piece%
+model key is gold
+
+tint is gold
+
+neededCapabilities are
+ hammer:1
+
+overrides are
+ integrity_helmet:1.0
+ integrity_chestplate:3.0
+ integrity_leggings:3.0
+ integrity_boots:1.0

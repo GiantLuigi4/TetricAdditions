@@ -1,0 +1,32 @@
+name is "minecraft:prismarine_shard"
+model key is special/prismarine_%key%
+tint is prismarine
+useTint is false
+
+neededCapabilities are
+ hammer:2
+
+overrides are
+# helmet values
+ integrity_helmet:2.0
+ durability_helmet:239.9999999994
+ armor_helmet:3.0
+ toughness_helmet:0.0
+
+# chestplate values
+ integrity_chestplate:5.0
+ durability_chestplate:360.0
+ armor_chestplate:7.0
+ toughness_chestplate:0.0
+
+# leggings values
+ integrity_leggings:4.0
+ durability_leggings:315.0
+ armor_leggings:6.0
+ toughness_leggings:0.0
+
+# boots values
+ integrity_boots:2.0
+ durability_boots:239.9999999994
+ armor_boots:3.0
+ toughness_boots:0.0

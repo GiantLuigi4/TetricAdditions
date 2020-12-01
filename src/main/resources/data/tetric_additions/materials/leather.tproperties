@@ -1,0 +1,11 @@
+name is "minecraft:leather"
+parent for %piece% is minecraft:leather_%piece%
+
+neededCapabilities are
+ cutting:2
+
+overrides are
+ integrity_helmet:2.0
+ integrity_chestplate:4.0
+ integrity_leggings:3.0
+ integrity_boots:2.0

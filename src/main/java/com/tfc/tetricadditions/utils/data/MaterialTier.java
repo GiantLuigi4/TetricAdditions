@@ -1,7 +1,7 @@
 package com.tfc.tetricadditions.utils.data;
 
 public class MaterialTier {
-	private static final double[] multipliers = new double[]{
+	public static final double[] multipliers = new double[]{
 			0.33333333333, 1, 0.75, 0.33333333333
 	};
 	private static final double[] costs = new double[]{
@@ -24,6 +24,7 @@ public class MaterialTier {
 	public final int toolTier;
 	public final boolean useTint;
 	
+	//TODO: Toughness Scalar
 	public MaterialTier(String name, int chestplateValue, int chestplateIntegrity, int chestplateDurability, boolean baseProvidesToughness, String key, String textureBase, String tint, String tool, int toolTier) {
 		this.name = name;
 		this.chestplateValue = chestplateValue;
@@ -113,6 +114,16 @@ public class MaterialTier {
 								.replace("%type%", type.substring(type.lastIndexOf("/") + 1))
 								.replace("%part%", pieces[part])
 								.replace("$alt", "")
+				;
+	}
+	
+	public String toMatTprop(double scalar, double integrityLose, boolean loseIntegrity, boolean useToughness, String type, int part) {
+		return
+				"\n# " + pieces[part] + " values\n" +
+						" integrity_" + pieces[part] + ":" + (Math.ceil(chestplateIntegrity * multipliers[part] * scalar) * (loseIntegrity ? -integrityLose : 1)) + "\n" +
+						" durability_" + pieces[part] + ":" + (chestplateDurability * ((multipliers[part] + 1) / 2) * scalar) + "\n" +
+						" armor_" + pieces[part] + ":" + (useToughness ? (baseProvidesToughness ? (2 * scalar * multipliers[part]) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar))) + "\n" +
+						" toughness_" + pieces[part] + ":" + (!useToughness ? (baseProvidesToughness ? (2 * scalar) : 0) : (Math.ceil(chestplateValue * multipliers[part] * scalar * multipliers[part]))) + "\n"
 				;
 	}
 }

@@ -1,0 +1,29 @@
+name is "minecraft:vine"
+
+neededCapabilities are
+ cutting:2
+
+overrides are
+# helmet values
+ integrity_helmet:1.0
+ durability_helmet:23.333333333275
+ armor_helmet:1.0
+ toughness_helmet:0.0
+
+# chestplate values
+ integrity_chestplate:2.0
+ durability_chestplate:35.0
+ armor_chestplate:2.0
+ toughness_chestplate:0.0
+
+# leggings values
+ integrity_leggings:2.0
+ durability_leggings:30.625
+ armor_leggings:2.0
+ toughness_leggings:0.0
+
+# boots values
+ integrity_boots:1.0
+ durability_boots:23.333333333275
+ armor_boots:1.0
+ toughness_boots:0.0

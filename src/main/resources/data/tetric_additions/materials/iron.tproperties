@@ -1,0 +1,29 @@
+#the registry name of the item that this material file is for
+name is "minecraft:iron_ingot"
+
+#optional, model key
+model key is iron
+
+#forces the glyph to be iron colored
+tint is iron
+
+neededCapabilities are
+ hammer:2
+
+#makes it so that the tint doesn't show up on the model
+#useTint is false
+
+#a set of getters for stats (from vanilla materials)
+parent for %piece% is minecraft:iron_%piece%
+#example for setting the parent for a specific piece
+#parent for helmet is minecraft:diamond_piece
+
+#Overrides values, syntax is %stat%_%piece%:%value%
+overrides are
+# makes specifically the helmet have 20 protection
+# which is not a value provided by any single piece of vanilla armor
+# armor_helmet:20
+ integrity_helmet:2.0
+ integrity_chestplate:5.0
+ integrity_leggings:4.0
+ integrity_boots:2.0

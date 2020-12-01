@@ -1,0 +1,32 @@
+name is "minecraft:cactus"
+model key is special/cactus_%key%
+tint is vine
+useTint is false
+
+neededCapabilities are
+ cutting:2
+
+overrides are
+# helmet values
+ integrity_helmet:1.0
+ durability_helmet:26.666666666599998
+ armor_helmet:1.0
+ toughness_helmet:0.0
+
+# chestplate values
+ integrity_chestplate:2.0
+ durability_chestplate:40.0
+ armor_chestplate:2.0
+ toughness_chestplate:0.0
+
+# leggings values
+ integrity_leggings:2.0
+ durability_leggings:35.0
+ armor_leggings:2.0
+ toughness_leggings:0.0
+
+# boots values
+ integrity_boots:1.0
+ durability_boots:26.666666666599998
+ armor_boots:1.0
+ toughness_boots:0.0
