@@ -1,6 +1,5 @@
 name is "minecraft:gold_ingot"
 parent for %piece% is minecraft:golden_%piece%
-model key is gold
 
 tint is gold
 

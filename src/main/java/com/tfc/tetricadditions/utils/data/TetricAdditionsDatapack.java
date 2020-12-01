@@ -67,129 +67,131 @@ public class TetricAdditionsDatapack implements IResourcePack {
 	
 	@Override
 	public InputStream getResourceStream(ResourcePackType type, ResourceLocation location) throws IOException {
-//		if (location.toString().contains("helmet")) System.out.println(location);
-		if (location.toString().startsWith("tetra:modules/")) {
-			TPropObject propObject = readers.get(location).getAsTPropObject();
-			String key = ((TPropString) propObject.get("name")).get().substring("tetra:modules/".length() + 1);
-			key = key.substring(0, key.length() - 1);
-			String json = "{\"replace\":true,\"slots\":[\"" + key + "\"],\"type\":\"tetra:basic_module\",\"renderLayer\":\"highest\",\"tweakKey\":\"tetra:" + key + "\",\"variants\":[";
+		if (!location.toString().startsWith("tetra:modules/")) return null;
+		
+		TPropObject moduleProperties = readers.get(location).getAsTPropObject();
+		String key = ((TPropString) moduleProperties.get("name")).get().substring("tetra:modules/".length() + 1);
+		key = key.substring(0, key.length() - 1);
+		String json = "{\"replace\":true,\"slots\":[\"" + key + "\"],\"type\":\"tetra:basic_module\",\"renderLayer\":\"highest\",\"tweakKey\":\"tetra:" + key + "\",\"variants\":[";
+		
+		final String[] pieces = new String[]{"helmet", "chestplate", "leggings", "boots"};
+		
+		for (String piece : pieces) {
+			if (!location.toString().contains(piece)) continue;
 			
-			final String[] pieces = new String[]{"helmet", "chestplate", "leggings", "boots"};
-			
-			for (String s : pieces) {
-				if (location.toString().contains(s)) {
-					for (TPropObject object : ((TPropArray) propObject.get("valid materials")).toArray()) {
-						String material = ((TPropString) object).get();
-						System.out.println(material);
-						TPropertiesReader reader = readMaterial(new ResourceLocation(material));
-						TPropObject object1 = reader.getAsTPropObject();
-						
-						String name = ((TPropString) object1.get("name")).get();
-						name = name.substring(name.indexOf(":") + 1, name.length() - 1);
-						
-						String tint = name;
-						boolean useTint = true;
-						
-						if (object1.contains("tint")) tint = ((TPropString) object1.get("tint")).get();
-						
-						if (object1.contains("useTint"))
-							useTint = Boolean.parseBoolean(((TPropString) object1.get("useTint")).get());
-						
-						boolean loseIntegrity = Boolean.parseBoolean(object1.contains("decreasesIntegrity") ? ((TPropString) object1.get("decreasesIntegrity")).get() : "false");
-						
-						String durability = null;
-						String armor = null;
-						String toughness = null;
-						float integrity = 0;
-						
-						if (object1.contains("overrides")) {
-							TPropArray stats = ((TPropArray) object1.get("overrides"));
-							for (TPropObject stat : stats.toArray()) {
-								String statS = ((TPropString) stat).get();
-								if (statS.startsWith("durability_" + s))
-									durability = statS.replace("durability_" + s + ":", "");
-								else if (statS.startsWith("armor_" + s)) armor = statS.replace("armor_" + s + ":", "");
-								else if (statS.startsWith("toughness_" + s))
-									toughness = statS.replace("toughness_" + s + ":", "");
-								else if (statS.startsWith("integrity_" + s))
-									integrity = Float.parseFloat(statS.replace("integrity_" + s + ":", ""));
-							}
-						}
-						
-						Item item = null;
-						
-						if (object1.contains("parent for %piece%"))
-							item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(((TPropString) object1.get("parent for %piece%")).get().replace("%piece%", s)));
-						else if (object1.contains("parent for " + s))
-							item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(((TPropString) object1.get("parent for " + s)).get().replace("%piece%", s)));
-						
-						if (item instanceof ArmorItem) {
-							ArmorItem armorItem = (ArmorItem) item;
-							if (durability == null) durability = armorItem.getMaxDamage(new ItemStack(item)) + "";
-							if (armor == null) armor = armorItem.getDamageReduceAmount() + "";
-							if (toughness == null) toughness = armorItem.getToughness() + "";
-						}
-						
-						String model = "%key%";
-						
-						float scalar = 1;
-						
-						if (object1.contains("scale"))
-							scalar = Float.parseFloat(((TPropString) object1.get("scale")).get());
-						
-						if (object1.contains("model key")) model = ((TPropString) object1.get("model key")).get();
-						
-						model = model.replace("%key%", ((TPropString) propObject.get("key")).get());
-						
-						try {
-							json += "{\"key\":\"" + key + "/" + name + "\"," +
-									"\"durability\":" + (int) (Float.parseFloat(durability) * scalar) + "," +
-									"\"integrity\":" + (Math.ceil(integrity * scalar) * (loseIntegrity ? -1 : 1)) + "," +
-									"\"damage\":" + (Float.parseFloat(armor) * scalar) + "," +
-									"\"attackSpeed\":" + (Float.parseFloat(toughness) * scalar) + "," +
-									"\"effects\":{" +
-									"\"armor\":" + (Float.parseFloat(armor) * scalar) + "," +
-									"\"toughness\":" + (Float.parseFloat(toughness) * scalar) + "}," +
-									"\"glyph\":{" +
-									"\"tint\":\"" + tint + "_glyph\"," +
-									"\"textureX\":88," +
-									"\"textureY\":16" +
-									"},\"models\":[{" +
-									"\"location\":\"tetric_additions:items/module/" + key.substring(0, key.lastIndexOf("/")) + "/" + model + "\"," +
-									"\"tint\":\"" + (useTint ? tint : "string") + "\"" +
-									"}]},";
-						} catch (Throwable ignored) {
-							System.out.println(durability);
-							System.out.println(armor);
-							System.out.println(toughness);
-							throw new RuntimeException(ignored);
-						}
+			for (TPropObject object : ((TPropArray) moduleProperties.get("valid materials")).toArray()) {
+				String material = ((TPropString) object).get();
+				System.out.println(material);
+				TPropertiesReader reader = readMaterial(new ResourceLocation(material));
+				TPropObject materialProperties = reader.getAsTPropObject();
+				
+				String name = ((TPropString) materialProperties.get("name")).get();
+				name = name.substring(name.indexOf(":") + 1, name.length() - 1);
+				
+				String tint = name;
+				boolean useTint = true;
+				
+				if (materialProperties.contains("tint"))
+					tint = ((TPropString) materialProperties.get("tint")).get();
+				
+				if (materialProperties.contains("useTint"))
+					useTint = Boolean.parseBoolean(((TPropString) materialProperties.get("useTint")).get());
+				
+				boolean loseIntegrity = Boolean.parseBoolean(materialProperties.contains("decreasesIntegrity") ? ((TPropString) materialProperties.get("decreasesIntegrity")).get() : "false");
+				
+				String durability = null;
+				String armor = null;
+				String toughness = null;
+				float integrity = 0;
+				
+				if (materialProperties.contains("overrides")) {
+					TPropArray stats = ((TPropArray) materialProperties.get("overrides"));
+					for (TPropObject stat : stats.toArray()) {
+						String statS = ((TPropString) stat).get();
+						if (statS.startsWith("durability_" + piece))
+							durability = statS.replace("durability_" + piece + ":", "");
+						else if (statS.startsWith("armor_" + piece))
+							armor = statS.replace("armor_" + piece + ":", "");
+						else if (statS.startsWith("toughness_" + piece))
+							toughness = statS.replace("toughness_" + piece + ":", "");
+						else if (statS.startsWith("integrity_" + piece))
+							integrity = Float.parseFloat(statS.replace("integrity_" + piece + ":", ""));
 					}
-					
-					json = json.replace("%piece%", s).replace("/alt", "");
-					json = json.substring(0, json.length() - 1);
-					json += "]}";
-					System.out.println(json);
+				}
+				
+				Item item = null;
+				
+				if (materialProperties.contains("parent for %piece%"))
+					item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(((TPropString) materialProperties.get("parent for %piece%")).get().replace("%piece%", piece)));
+				else if (materialProperties.contains("parent for " + piece))
+					item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(((TPropString) materialProperties.get("parent for " + piece)).get().replace("%piece%", piece)));
+				
+				if (item instanceof ArmorItem) {
+					ArmorItem armorItem = (ArmorItem) item;
+					if (durability == null)
+						durability = armorItem.getMaxDamage(new ItemStack(item)) + "";
+					if (armor == null)
+						armor = armorItem.getDamageReduceAmount() + "";
+					if (toughness == null)
+						toughness = armorItem.getToughness() + "";
+				}
+				
+				String model = "%key%";
+				
+				float scalar = 1;
+				
+				if (materialProperties.contains("scale"))
+					scalar = Float.parseFloat(((TPropString) materialProperties.get("scale")).get());
+				
+				if (materialProperties.contains("model key"))
+					model = ((TPropString) materialProperties.get("model key")).get();
+				
+				model = model.replace("%key%", ((TPropString) moduleProperties.get("key")).get());
+				
+				try {
+					json += "{\"key\":\"" + key + "/" + name + "\"," +
+							"\"durability\":" + (int) (Float.parseFloat(durability) * scalar) + "," +
+							"\"integrity\":" + (Math.ceil(integrity * scalar) * (loseIntegrity ? -1 : 1)) + "," +
+							"\"damage\":" + (Float.parseFloat(armor) * scalar) + "," +
+							"\"attackSpeed\":" + (Float.parseFloat(toughness) * scalar) + "," +
+							"\"effects\":{" +
+							"\"armor\":" + (Float.parseFloat(armor) * scalar) + "," +
+							"\"toughness\":" + (Float.parseFloat(toughness) * scalar) + "}," +
+							"\"glyph\":{" +
+							"\"tint\":\"" + tint + "_glyph\"," +
+							"\"textureX\":88," +
+							"\"textureY\":16" +
+							"},\"models\":[{" +
+							"\"location\":\"tetric_additions:items/module/" + key.substring(0, key.lastIndexOf("/")) + "/" + model + "\"," +
+							"\"tint\":\"" + (useTint ? tint : "string") + "\"" +
+							"}]},";
+				} catch (Throwable ignored) {
+					System.out.println(durability);
+					System.out.println(armor);
+					System.out.println(toughness);
+					throw new RuntimeException(ignored);
 				}
 			}
 			
-			ByteArrayInputStream stream = new ByteArrayInputStream(json.getBytes());
-			closeables.add(stream);
-			
-			return stream;
+			json = json.replace("%piece%", piece).replace("/alt", "");
+			json = json.substring(0, json.length() - 1);
+			json += "]}";
+			System.out.println(json);
 		}
-		return null;
-//		throw new IOException("NYI");
+		
+		ByteArrayInputStream stream = new ByteArrayInputStream(json.getBytes());
+		closeables.add(stream);
+		
+		return stream;
 	}
 	
 	@Override
 	public Collection<ResourceLocation> getAllResourceLocations(ResourcePackType type, String namespaceIn, String pathIn, int maxDepthIn, Predicate<String> filterIn) {
 		if (pathIn.equals("module_types")) {
-			if (maxDepthIn == 0) {
+			if (maxDepthIn == 0)
 				return manager.getAllResourceLocations("module_types", (path) -> path.toLowerCase().endsWith(".tproperties"));
-			} else {
+			else
 				return ImmutableSet.of();
-			}
 		} else if (pathIn.equals("modules")) {
 			Collection<ResourceLocation> locations = getAllResourceLocations(type, namespaceIn, "module_types", 0, (path) -> path.toLowerCase().endsWith(".tproperties"));
 			ArrayList<ResourceLocation> returnVal = new ArrayList<>();

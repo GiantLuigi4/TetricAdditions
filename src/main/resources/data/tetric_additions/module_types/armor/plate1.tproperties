@@ -1,0 +1,21 @@
+#the ResourceLocation of the module
+name is "tetra:modules/armor/%piece%/plate1"
+
+#the key for the model
+key is plate1
+
+#the scale for the stats
+scale is 0.5
+
+#makes it decrease the integrity value
+decreasesIntegrity is true
+
+#Materials which are applicable to this piece
+valid materials are
+ minecraft:diamond
+ minecraft:iron_ingot
+ minecraft:gold_ingot
+ minecraft:leather
+ minecraft:rabbit_hide
+ minecraft:cactus
+ minecraft:prismarine_shard

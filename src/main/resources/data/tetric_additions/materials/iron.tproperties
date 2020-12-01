@@ -2,7 +2,7 @@
 name is "minecraft:iron_ingot"
 
 #optional, model key
-model key is iron
+#model key is iron
 
 #forces the glyph to be iron colored
 tint is iron
