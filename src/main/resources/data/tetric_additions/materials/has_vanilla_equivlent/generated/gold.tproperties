@@ -6,6 +6,9 @@ tint is gold
 neededCapabilities are
  hammer:1
 
+texture redirect is minecraft:item/golden_%piece%
+don't useTint for base is true
+
 overrides are
  integrity_helmet:1.0
  integrity_chestplate:3.0

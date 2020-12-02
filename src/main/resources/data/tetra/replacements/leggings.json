@@ -1,0 +1,50 @@
+[
+  {
+    "predicate": {
+      "item": "minecraft:leather_leggings"
+    },
+    "item": "tetric_additions:modular_leggings",
+    "modules": {
+      "armor/leggings/base": [
+        "armor/leggings/base",
+        "armor/leggings/base/leather"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:iron_leggings"
+    },
+    "item": "tetric_additions:modular_leggings",
+    "modules": {
+      "armor/leggings/base": [
+        "armor/leggings/base",
+        "armor/leggings/base/iron_ingot"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:golden_leggings"
+    },
+    "item": "tetric_additions:modular_leggings",
+    "modules": {
+      "armor/leggings/base": [
+        "armor/leggings/base",
+        "armor/leggings/base/gold_ingot"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:diamond_leggings"
+    },
+    "item": "tetric_additions:modular_leggings",
+    "modules": {
+      "armor/leggings/base": [
+        "armor/leggings/base",
+        "armor/leggings/base/diamond"
+      ]
+    }
+  }
+]

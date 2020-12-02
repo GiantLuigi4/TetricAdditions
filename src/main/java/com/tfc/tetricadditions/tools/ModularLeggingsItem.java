@@ -106,7 +106,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/cactus.png"
+												"tetric_additions:textures/models/armor/cactus_layer_4.png"
 										)
 								)
 						);
@@ -114,7 +114,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/prismarine.png"
+												"tetric_additions:textures/models/armor/prismarine_layer_4.png"
 										)
 								)
 						);
@@ -122,7 +122,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/normal.png"
+												"tetric_additions:textures/models/armor/normal_layer_4.png"
 										)
 								)
 						);
@@ -154,7 +154,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/cactus_layer_2.png"
+												"tetric_additions:textures/models/armor/cactus_layer_5.png"
 										)
 								)
 						);
@@ -162,7 +162,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/prismarine_layer_2.png"
+												"tetric_additions:textures/models/armor/prismarine_layer_5.png"
 										)
 								)
 						);
@@ -170,7 +170,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/normal_layer_2.png"
+												"tetric_additions:textures/models/armor/normal_layer_5.png"
 										)
 								)
 						);
@@ -204,7 +204,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/cactus_layer_3.png"
+												"tetric_additions:textures/models/armor/cactus_layer_6.png"
 										)
 								)
 						);
@@ -212,7 +212,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/prismarine_layer_3.png"
+												"tetric_additions:textures/models/armor/prismarine_layer_6.png"
 										)
 								)
 						);
@@ -220,7 +220,7 @@ public class ModularLeggingsItem extends ModularArmorItem {
 						builder = buffer.getBuffer(
 								RenderType.getEntityCutoutNoCull(
 										new ResourceLocation(
-												"tetric_additions:textures/models/armor/normal_layer_3.png"
+												"tetric_additions:textures/models/armor/normal_layer_6.png"
 										)
 								)
 						);

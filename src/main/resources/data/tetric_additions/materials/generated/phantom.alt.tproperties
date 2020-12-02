@@ -11,22 +11,22 @@ overrides are
  integrity_helmet:1.0
  durability_helmet:10.66666666664
  armor_helmet:0.8
- toughness_helmet:1.0
+ toughness_helmet:8.0
 
 # chestplate values
  integrity_chestplate:2.0
  durability_chestplate:16.0
  armor_chestplate:1.0
- toughness_chestplate:1.0
+ toughness_chestplate:10.0
 
 # leggings values
  integrity_leggings:2.0
  durability_leggings:14.0
  armor_leggings:0.9
- toughness_leggings:1.0
+ toughness_leggings:6.0
 
 # boots values
  integrity_boots:1.0
  durability_boots:10.66666666664
  armor_boots:0.7
- toughness_boots:1.0
+ toughness_boots:4.0

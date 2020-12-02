@@ -4,6 +4,9 @@ parent for %piece% is minecraft:diamond_%piece%
 neededCapabilities are
  hammer:3
 
+texture redirect is minecraft:item/diamond_%piece%
+don't useTint for base is true
+
 overrides are
  integrity_helmet:4.0
  integrity_chestplate:10.0

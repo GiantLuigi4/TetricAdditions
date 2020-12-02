@@ -98,6 +98,7 @@ public class TetricAdditionsDatapack implements IResourcePack {
 					
 					String tint = name;
 					boolean useTint = true;
+					boolean useTintOnBase = true;
 					
 					if (materialProperties.contains("tint"))
 						tint = ((TPropString) materialProperties.get("tint")).get();
@@ -105,12 +106,29 @@ public class TetricAdditionsDatapack implements IResourcePack {
 					if (materialProperties.contains("useTint"))
 						useTint = Boolean.parseBoolean(((TPropString) materialProperties.get("useTint")).get());
 					
+					if (materialProperties.contains("don't useTint for base"))
+						useTintOnBase = !Boolean.parseBoolean(((TPropString) materialProperties.get("don't useTint for base")).get());
+					
 					boolean loseIntegrity = Boolean.parseBoolean(moduleProperties.contains("decreasesIntegrity") ? ((TPropString) moduleProperties.get("decreasesIntegrity")).get() : "false");
 					
-					float durability = -999;
-					float armor = -999;
-					float toughness = -999;
+					float durability = 0;
+					float armor = 0;
+					float toughness = 0;
 					float integrity = 0;
+					
+					Item item = null;
+					
+					if (materialProperties.contains("parent for %piece%"))
+						item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(((TPropString) materialProperties.get("parent for %piece%")).get().replace("%piece%", piece)));
+					else if (materialProperties.contains("parent for " + piece))
+						item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(((TPropString) materialProperties.get("parent for " + piece)).get().replace("%piece%", piece)));
+					
+					if (item instanceof ArmorItem) {
+						ArmorItem armorItem = (ArmorItem) item;
+						durability = armorItem.getMaxDamage(new ItemStack(item));
+						armor = armorItem.getDamageReduceAmount();
+						toughness = armorItem.getToughness();
+					}
 					
 					if (materialProperties.contains("overrides")) {
 						TPropArray stats = ((TPropArray) materialProperties.get("overrides"));
@@ -127,22 +145,10 @@ public class TetricAdditionsDatapack implements IResourcePack {
 						}
 					}
 					
-					Item item = null;
+					String texture = null;
 					
-					if (materialProperties.contains("parent for %piece%"))
-						item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(((TPropString) materialProperties.get("parent for %piece%")).get().replace("%piece%", piece)));
-					else if (materialProperties.contains("parent for " + piece))
-						item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(((TPropString) materialProperties.get("parent for " + piece)).get().replace("%piece%", piece)));
-					
-					if (item instanceof ArmorItem) {
-						ArmorItem armorItem = (ArmorItem) item;
-						if (durability == -999)
-							durability = armorItem.getMaxDamage(new ItemStack(item));
-						if (armor == -999)
-							armor = armorItem.getDamageReduceAmount();
-						if (toughness == -999)
-							toughness = armorItem.getToughness();
-					}
+					if (materialProperties.contains("texture redirect"))
+						texture = ((TPropString) materialProperties.get("texture redirect")).get();
 					
 					String model = "%key%";
 					
@@ -172,8 +178,8 @@ public class TetricAdditionsDatapack implements IResourcePack {
 							"\"textureX\":88," +
 							"\"textureY\":16" +
 							"},\"models\":[{" +
-							"\"location\":\"tetric_additions:items/module/" + key.substring(0, key.lastIndexOf("/")) + "/" + model + "\"," +
-							"\"tint\":\"" + (useTint ? tint : "string") + "\"" +
+							"\"location\":\"" + ((texture == null || !location.toString().contains("base")) ? ("tetric_additions:items/module/" + key.substring(0, key.lastIndexOf("/")) + "/" + model) : texture).replace("%piece%", piece) + "\"," +
+							"\"tint\":\"" + ((useTint || (!useTintOnBase && location.toString().contains("base"))) ? tint : "string") + "\"" +
 							"}]},";
 //					} catch (Throwable ignored) {
 //						System.out.println(durability);
@@ -186,7 +192,7 @@ public class TetricAdditionsDatapack implements IResourcePack {
 				json = json.replace("%piece%", piece).replace("/alt", "");
 				json = json.substring(0, json.length() - 1);
 				json += "]}";
-//				System.out.println(json);
+				System.out.println(json);
 			}
 		} else {
 			TPropObject moduleProperties = readers.get(location).getAsTPropObject();
@@ -242,8 +248,7 @@ public class TetricAdditionsDatapack implements IResourcePack {
 							"{\"material\":{" +
 									"\"item\":\"" + material + "\"," +
 									"\"count\":" + (int) Math.ceil(quantity * scalar) + "}," +
-									"\"requiredCapabilities\":{" +
-									"" + capabilities + "}," +
+									"\"requiredCapabilities\":{" + capabilities + "}," +
 									"\"moduleKey\":\"" + key + "\"," +
 									"\"moduleVariant\":\"" + key + "/" + name + "\"},";
 				}
@@ -254,10 +259,10 @@ public class TetricAdditionsDatapack implements IResourcePack {
 //				System.out.println(json);
 			}
 		}
-
+		
 		ByteArrayInputStream stream = new ByteArrayInputStream(json.getBytes());
 		closeables.add(stream);
-
+		
 		return stream;
 	}
 	

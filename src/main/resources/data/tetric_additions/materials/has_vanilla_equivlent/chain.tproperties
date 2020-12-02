@@ -1,0 +1,15 @@
+name is "minecraft:chain"
+parent for %piece% is minecraft:chain_%piece%
+tint is iron
+
+neededCapabilities are
+ cutting:2
+
+texture redirect is minecraft:item/chain_%piece%
+don't useTint for base is false
+
+overrides are
+ integrity_helmet:2.0
+ integrity_chestplate:4.0
+ integrity_leggings:3.0
+ integrity_boots:2.0

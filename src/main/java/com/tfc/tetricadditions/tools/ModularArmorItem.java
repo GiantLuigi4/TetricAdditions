@@ -45,7 +45,7 @@ public class ModularArmorItem extends ModularItem {
 				case FEET:
 					return "boots";
 				case LEGS:
-					return "pants";
+					return "leggings";
 				case HEAD:
 					return "helmet";
 			}
@@ -62,7 +62,7 @@ public class ModularArmorItem extends ModularItem {
 			case FEET:
 				return "boots";
 			case LEGS:
-				return "pants";
+				return "leggings";
 			case HEAD:
 				return "helmet";
 		}

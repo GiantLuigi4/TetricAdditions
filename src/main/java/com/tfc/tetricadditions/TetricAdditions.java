@@ -4,6 +4,7 @@ import com.tfc.tetricadditions.modules.DyableArmorModule;
 import com.tfc.tetricadditions.tools.ModularBootsItem;
 import com.tfc.tetricadditions.tools.ModularChestplateItem;
 import com.tfc.tetricadditions.tools.ModularHelmetItem;
+import com.tfc.tetricadditions.tools.ModularLeggingsItem;
 import com.tfc.tetricadditions.utils.data.TetricAdditionsDataLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.AtlasTexture;
@@ -186,8 +187,9 @@ public class TetricAdditions {
 	public static void registerItems(RegistryEvent.Register<Item> itemRegistryEvent) {
 		itemRegistryEvent.getRegistry().registerAll(
 				new ModularHelmetItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1)),
-				new ModularBootsItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1)),
-				new ModularChestplateItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1))
+				new ModularChestplateItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1)),
+				new ModularLeggingsItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1)),
+				new ModularBootsItem(new Item.Properties().group(TetraItemGroup.instance).maxStackSize(1))
 		);
 	}
 }

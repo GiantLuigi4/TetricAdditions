@@ -4,6 +4,9 @@ parent for %piece% is minecraft:leather_%piece%
 neededCapabilities are
  cutting:2
 
+texture redirect is minecraft:item/leather_%piece%
+don't useTint for base is true
+
 overrides are
  integrity_helmet:2.0
  integrity_chestplate:4.0

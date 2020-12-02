@@ -18,29 +18,38 @@ public class Server {
 					AtomicInteger totalThorns = new AtomicInteger();
 					event.getEntity().getArmorInventoryList().iterator().forEachRemaining((stack) -> {
 						if (stack.getItem() instanceof ModularArmorItem) {
-							ModularArmorItem armor = (ModularArmorItem) stack.getItem();
-							armor.tickHoningProgression(event.getEntityLiving(), stack, (int) Math.ceil(event.getAmount() / 16f));
-							if (!armor.isBroken(stack)) {
-								for (String key : armor.getMajorModuleKeys()) {
-									ItemModule major = armor.getModuleFromSlot(stack, key);
-									if (major != null) {
-										if (major.getName(stack).contains("cactus")) totalThorns.getAndAdd(3);
-										else if (major.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+							if (!((ModularArmorItem) stack.getItem()).isBroken(stack)) {
+								ModularArmorItem armor = (ModularArmorItem) stack.getItem();
+								armor.tickHoningProgression(event.getEntityLiving(), stack, (int) Math.ceil(event.getAmount() / 16f));
+								if (!armor.isBroken(stack)) {
+									for (String key : armor.getMajorModuleKeys()) {
+										ItemModule major = armor.getModuleFromSlot(stack, key);
+										if (major != null) {
+											if (major.getName(stack).contains("cactus")) totalThorns.getAndAdd(3);
+											else if (major.getName(stack).contains("prismarine"))
+												totalThorns.getAndAdd(1);
+										}
 									}
-								}
-								for (ItemModule minor : armor.getMinorModules(stack)) {
-									if (minor != null) {
-										if (minor.getName(stack).contains("cactus")) totalThorns.getAndAdd(2);
-										else if (minor.getName(stack).contains("prismarine")) totalThorns.getAndAdd(1);
+									for (ItemModule minor : armor.getMinorModules(stack)) {
+										if (minor != null) {
+											if (minor.getName(stack).contains("cactus")) totalThorns.getAndAdd(2);
+											else if (minor.getName(stack).contains("prismarine"))
+												totalThorns.getAndAdd(1);
+										}
 									}
 								}
 							}
 						}
 					});
 					if (totalThorns.get() != 0) {
-						event.getSource().getTrueSource().attackEntityFrom(DamageSource.causeThornsDamage(event.getEntity()),
-								Math.min(30, totalThorns.get() * (Math.max(0, event.getAmount()) / 3f))
-						);
+						float amt = Math.min(30, totalThorns.get() * (Math.max(0, event.getAmount()) / 3f));
+						float overFlow = (Math.max(0, event.getAmount()) / 3f) - amt;
+//						System.out.println(amt);
+//						System.out.println(overFlow);
+						amt += (35 - (35f / Math.abs(overFlow))) * 0.5f;
+//						System.out.println((35-(35f/Math.abs(overFlow)))*0.5f);
+//						System.out.println(amt);
+						event.getSource().getTrueSource().attackEntityFrom(DamageSource.causeThornsDamage(event.getEntity()), amt);
 					}
 				}
 			}

@@ -7,11 +7,18 @@ name is "minecraft:iron_ingot"
 #forces the glyph to be iron colored
 tint is iron
 
+#the capabilities needed to actually use the material
 neededCapabilities are
  hammer:2
 
+#allows you to set the textures for the material to a vanilla texture
+texture redirect is minecraft:item/iron_%piece%
+
 #makes it so that the tint doesn't show up on the model
 #useTint is false
+
+#makes it so that the tint doesn't show up on the model specifically for the base texture
+don't useTint for base is true
 
 #a set of getters for stats (from vanilla materials)
 parent for %piece% is minecraft:iron_%piece%
@@ -23,6 +30,7 @@ overrides are
 # makes specifically the helmet have 20 protection
 # which is not a value provided by any single piece of vanilla armor
 # armor_helmet:20
+
  integrity_helmet:2.0
  integrity_chestplate:5.0
  integrity_leggings:4.0
