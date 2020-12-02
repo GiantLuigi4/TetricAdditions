@@ -19,7 +19,7 @@
     "modules": {
       "armor/boots/base": [
         "armor/boots/base",
-        "armor/boots/base/iron"
+        "armor/boots/base/iron_ingot"
       ]
     }
   },
@@ -31,7 +31,7 @@
     "modules": {
       "armor/boots/base": [
         "armor/boots/base",
-        "armor/boots/base/gold"
+        "armor/boots/base/gold_ingot"
       ]
     }
   },

@@ -7,13 +7,13 @@ neededCapabilities are
 
 overrides are
 # helmet values
- integrity_helmet:2.0
+ integrity_helmet:6.0
  durability_helmet:415.33333333229496
  armor_helmet:2.0
  toughness_helmet:2.0
 
 # chestplate values
- integrity_chestplate:5.0
+ integrity_chestplate:24.0
  durability_chestplate:623.0
  armor_chestplate:4.0
  toughness_chestplate:2.0
@@ -25,7 +25,7 @@ overrides are
  toughness_leggings:2.0
 
 # boots values
- integrity_boots:2.0
+ integrity_boots:8.0
  durability_boots:415.33333333229496
  armor_boots:2.0
  toughness_boots:2.0

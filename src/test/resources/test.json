@@ -1,20 +1,86 @@
 {
   "replace": true,
   "slots": [
-    "armor/boots/binding"
+    "armor/leggings/plate1"
   ],
   "type": "tetra:basic_module",
   "renderLayer": "highest",
-  "tweakKey": "tetra:armor/boots/binding",
+  "tweakKey": "tetra:armor/leggings/plate1",
   "variants": [
     {
-      "key": "armor/boots/binding/leather",
-      "durability": 65,
-      "integrity": -0.1,
-      "damage": 1.0,
+      "key": "armor/leggings/plate1/diamond",
+      "durability": 495,
+      "integrity": 8.0,
+      "damage": 6.0,
+      "attackSpeed": 2.0,
+      "effects": {
+        "armor": 6.0,
+        "toughness": 2.0
+      },
+      "glyph": {
+        "tint": "diamond_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/leggings/plate1",
+          "tint": "diamond"
+        }
+      ]
+    },
+    {
+      "key": "armor/leggings/plate1/iron_ingot",
+      "durability": 225,
+      "integrity": 4.0,
+      "damage": 5.0,
       "attackSpeed": 0.0,
       "effects": {
-        "armor": 1.0,
+        "armor": 5.0,
+        "toughness": 0.0
+      },
+      "glyph": {
+        "tint": "iron_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/leggings/plate1",
+          "tint": "iron"
+        }
+      ]
+    },
+    {
+      "key": "armor/leggings/plate1/gold_ingot",
+      "durability": 105,
+      "integrity": 3.0,
+      "damage": 3.0,
+      "attackSpeed": 0.0,
+      "effects": {
+        "armor": 3.0,
+        "toughness": 0.0
+      },
+      "glyph": {
+        "tint": "gold_glyph",
+        "textureX": 88,
+        "textureY": 16
+      },
+      "models": [
+        {
+          "location": "tetric_additions:items/module/armor/leggings/plate1",
+          "tint": "gold"
+        }
+      ]
+    },
+    {
+      "key": "armor/leggings/plate1/leather",
+      "durability": 75,
+      "integrity": 3.0,
+      "damage": 2.0,
+      "attackSpeed": 0.0,
+      "effects": {
+        "armor": 2.0,
         "toughness": 0.0
       },
       "glyph": {
@@ -24,19 +90,19 @@
       },
       "models": [
         {
-          "location": "tetric_additions:items/module/armor/boots/binding",
+          "location": "tetric_additions:items/module/armor/leggings/plate1",
           "tint": "leather"
         }
       ]
     },
     {
-      "key": "armor/boots/binding/rabbit_hide",
-      "durability": 40,
-      "integrity": -0.1,
-      "damage": 2.0,
+      "key": "armor/leggings/plate1/rabbit_hide",
+      "durability": 52,
+      "integrity": 3.0,
+      "damage": 3.0,
       "attackSpeed": 0.0,
       "effects": {
-        "armor": 2.0,
+        "armor": 3.0,
         "toughness": 0.0
       },
       "glyph": {
@@ -46,41 +112,19 @@
       },
       "models": [
         {
-          "location": "tetric_additions:items/module/armor/boots/binding",
+          "location": "tetric_additions:items/module/armor/leggings/plate1",
           "tint": "string"
         }
       ]
     },
     {
-      "key": "armor/boots/binding/string",
-      "durability": 6,
-      "integrity": -0.1,
-      "damage": 1.0,
+      "key": "armor/leggings/plate1/cactus",
+      "durability": 35,
+      "integrity": 2.0,
+      "damage": 2.0,
       "attackSpeed": 0.0,
       "effects": {
-        "armor": 1.0,
-        "toughness": 0.0
-      },
-      "glyph": {
-        "tint": "string_glyph",
-        "textureX": 88,
-        "textureY": 16
-      },
-      "models": [
-        {
-          "location": "tetric_additions:items/module/armor/boots/binding",
-          "tint": "string"
-        }
-      ]
-    },
-    {
-      "key": "armor/boots/binding/vine",
-      "durability": 23,
-      "integrity": -0.1,
-      "damage": 1.0,
-      "attackSpeed": 0.0,
-      "effects": {
-        "armor": 1.0,
+        "armor": 2.0,
         "toughness": 0.0
       },
       "glyph": {
@@ -90,52 +134,30 @@
       },
       "models": [
         {
-          "location": "tetric_additions:items/module/armor/boots/binding",
-          "tint": "vine"
-        }
-      ]
-    },
-    {
-      "key": "armor/boots/binding/phantom_membrane",
-      "durability": 10,
-      "integrity": -0.1,
-      "damage": 1.0,
-      "attackSpeed": 1.0,
-      "effects": {
-        "armor": 1.0,
-        "toughness": 1.0
-      },
-      "glyph": {
-        "tint": "phantom_glyph",
-        "textureX": 88,
-        "textureY": 16
-      },
-      "models": [
-        {
-          "location": "tetric_additions:items/module/armor/boots/special/phantom_membrane_binding",
+          "location": "tetric_additions:items/module/armor/leggings/special/cactus_plate1",
           "tint": "string"
         }
       ]
     },
     {
-      "key": "armor/boots/binding/forged_bolt",
-      "durability": 415,
-      "integrity": -0.1,
-      "damage": 2.0,
-      "attackSpeed": 2.0,
+      "key": "armor/leggings/plate1/prismarine_shard",
+      "durability": 315,
+      "integrity": 4.0,
+      "damage": 6.0,
+      "attackSpeed": 0.0,
       "effects": {
-        "armor": 2.0,
-        "toughness": 2.0
+        "armor": 6.0,
+        "toughness": 0.0
       },
       "glyph": {
-        "tint": "bolt_glyph",
+        "tint": "prismarine_glyph",
         "textureX": 88,
         "textureY": 16
       },
       "models": [
         {
-          "location": "tetric_additions:items/module/armor/boots/special/bolt_binding",
-          "tint": "bolt"
+          "location": "tetric_additions:items/module/armor/leggings/special/prismarine_plate1",
+          "tint": "string"
         }
       ]
     }

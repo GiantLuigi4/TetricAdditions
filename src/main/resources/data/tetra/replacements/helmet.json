@@ -19,7 +19,7 @@
         "modules": {
             "armor/helmet/base": [
                 "armor/helmet/base",
-                "armor/helmet/base/iron"
+                "armor/helmet/base/iron_ingot"
             ]
         }
     },
@@ -31,7 +31,7 @@
         "modules": {
             "armor/helmet/base": [
                 "armor/helmet/base",
-                "armor/helmet/base/gold"
+                "armor/helmet/base/gold_ingot"
             ]
         }
     },

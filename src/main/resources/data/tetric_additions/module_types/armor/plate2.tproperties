@@ -5,7 +5,7 @@ name is "tetra:modules/armor/%piece%/plate2"
 key is plate2
 
 #the scale for the stats
-scale is 0.2
+scale is 0.25
 
 #makes it decrease the integrity value
 decreasesIntegrity is true

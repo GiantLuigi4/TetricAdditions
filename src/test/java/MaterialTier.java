@@ -1,5 +1,3 @@
-package com.tfc.tetricadditions.utils.data;
-
 public class MaterialTier {
 	public static final double[] multipliers = new double[]{
 			0.33333333333, 1, 0.75, 0.33333333333

@@ -1,5 +1,3 @@
-package com.tfc.tetricadditions.utils.data;
-
 import com.tfc.tetricadditions.utils.ArrayHelper;
 
 import java.io.File;

@@ -1,0 +1,50 @@
+[
+  {
+    "predicate": {
+      "item": "minecraft:leather_chestplate"
+    },
+    "item": "tetric_additions:modular_chestplate",
+    "modules": {
+      "armor/chestplate/base": [
+        "armor/chestplate/base",
+        "armor/chestplate/base/leather"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:iron_chestplate"
+    },
+    "item": "tetric_additions:modular_chestplate",
+    "modules": {
+      "armor/chestplate/base": [
+        "armor/chestplate/base",
+        "armor/chestplate/base/iron_ingot"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:golden_chestplate"
+    },
+    "item": "tetric_additions:modular_chestplate",
+    "modules": {
+      "armor/chestplate/base": [
+        "armor/chestplate/base",
+        "armor/chestplate/base/gold_ingot"
+      ]
+    }
+  },
+  {
+    "predicate": {
+      "item": "minecraft:diamond_chestplate"
+    },
+    "item": "tetric_additions:modular_chestplate",
+    "modules": {
+      "armor/chestplate/base": [
+        "armor/chestplate/base",
+        "armor/chestplate/base/diamond"
+      ]
+    }
+  }
+]
